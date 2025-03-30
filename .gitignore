@@ -1,0 +1,17 @@
+# OS-specific files  
+.DS_Store  
+.hugo_build.lock  
+
+# Hugo-generated files (should not be committed)  
+/public/  
+/resources/  
+
+# Node.js dependencies  
+node_modules/  
+package-lock.json  
+
+# Hugo module cache  
+.hugo_cache/  
+
+# Temporary files  
+*.log  
