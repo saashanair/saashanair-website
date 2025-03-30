@@ -1,0 +1,15 @@
+<!-- this layout is not currently being picked up -->
+
+{{ define "main" }}
+<section class="about-container">
+    <div class="about-content">
+        <h1>{{ .Title }}</h1>
+        <div class="about-text">
+            {{ .Content }}
+        </div>
+        <div class="social-links">
+            {{ partial "socials.html" . }}
+        </div>
+    </div>
+</section>
+{{ end }}

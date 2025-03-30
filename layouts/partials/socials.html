@@ -1,0 +1,21 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ $css := resources.Get "css/socials.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.Permalink }}">
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <section id="social-media">
+    <div class="social-icons">
+        {{ range .Site.Params.socialIcons }}
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name | title }}" class="tooltip">
+            <i data-feather="{{ .name }}" aria-hidden="true"></i>
+            <span class="tooltip-text">{{ .name | title }}</span>
+        </a>        
+        {{ end }}
+    </div>
+    <script>
+        feather.replace();
+    </script>      
+  </section>

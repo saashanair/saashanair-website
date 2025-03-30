@@ -1,0 +1,56 @@
+.social-icons {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Align icons vertically */
+    gap: 15px; /* Add spacing between icons */
+    justify-content: center; /* Center align (optional) */
+}
+
+.social-icons a svg {
+    stroke: #b6bfca; /* Default icon color */
+    transition: stroke 0.3s ease;
+}
+
+.social-icons a:hover svg {
+    stroke: #0284c7; /* Change color on hover */
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: rgb(241 245 249); /* Gray background */
+    color: rgb(100 116 139);
+    border-color: rgb(100 116 139);
+    text-align: center;
+    padding: 6px 10px;
+    border-radius: 4px;
+    position: absolute;
+    top: 120%; /* Position it below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 10;
+  }
+  
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }

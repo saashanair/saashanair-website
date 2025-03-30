@@ -1,0 +1,62 @@
+{{ define "main" }}
+  <h1 class="flex flex-row space-x-2 items-center">
+    <span>{{ .Title }}</span>
+    {{- with .OutputFormats.Get "rss" -}}
+      <a
+        rel="alternate"
+        type="application/rss+xml"
+        href="{{ .RelPermalink }}"
+        title="Subscribe to the {{ $.Title }} RSS feed"
+        class="text-slate-300 hover:text-orange-600"
+      >
+        {{ partial "svg/rss.html" }}
+      </a>
+    {{- end }}
+  </h1>
+
+  {{ .Content }}
+
+  <div class="flex flex-col space-y-8">
+    <aside class="relative flex flex-col space-y-1">
+      {{- if default true site.Params.posts.showTagsFilter }}
+        <details class="not-prose">
+          <summary class="cursor-pointer">See all tags</summary>
+          <ul class="flex flex-row flex-wrap space-x-2 pl-2">
+            {{ $tags:= site.Taxonomies.tags }}
+            {{ range $name, $taxonomy := $tags }}
+              {{ $count := 0 }}
+              {{- range $page := $taxonomy.Pages }}
+                {{ if eq $page.Section "posts" }}{{ $count = add $count 1 }}{{ end }}
+              {{- end }}
+              {{- if gt $count 0 }}
+                <li class="first:ml-2">
+                  <a href="{{ $taxonomy.Page.RelPermalink }}" class="taxonomy">
+                    <span>{{ $name }}</span>
+                    <span class="count">{{ $count }}</span>
+                  </a>
+                </li>
+              {{- end }}
+            {{- end }}
+          </ul>
+        </details>
+      {{- end }}
+    </aside>
+
+  <div class="flex flex-col space-y-8">
+    {{ $pages := where site.RegularPages "Section" "posts" }}
+    {{ $pager := .Paginate ($pages.GroupByDate "2006") 20 }}
+
+    {{- range $pager.PageGroups }}
+      <section class="not-prose flex flex-col space-y-4">
+        <h2 class="text-xl font-semibold opacity-60 text-right border-b">{{ .Key }}</h2>
+
+        {{ partial "posts/list.html" .Pages }}
+      </section>
+    {{- end }}
+
+    {{- if gt $pager.TotalPages 1 }}
+      {{ partial "pagination.html" . }}
+    {{- end }}
+  </section>
+  </div>
+{{ end }}

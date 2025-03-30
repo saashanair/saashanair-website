@@ -1,0 +1,44 @@
+<div class="not-prose">
+    <ol>
+      {{- range . }}
+        <li class="mb-6">
+          <article class="flex flex-col space-y-1">
+            <header class="flex justify-between items-center">
+              <h3 class="text-base font-semibold leading-none">
+                <a
+                  href="{{ .RelPermalink }}"
+                  class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                  >{{ .Title }}</a
+                >
+              </h3>
+
+              {{ with .Page.GetTerms "tags" }}
+                <ul class="flex flex-row items-center space-x-2 text-sm opacity-80">
+                  {{ range . }}
+                    <li>
+                      <a
+                        href="{{ .RelPermalink }}"
+                        class="taxonomy px-2 py-1 bg-gray-200 rounded text-xs"
+                        title="See posts tagged {{ .LinkTitle }}"
+                      >
+                        {{ .LinkTitle }}
+                      </a>
+                    </li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+
+            </header>
+
+            {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
+            {{- $dateHuman := .Date | time.Format (default ":date_long" .Site.Params.dateFormat) -}}
+            <time class="text-sm italic leading-5 opacity-80" datetime="{{ $dateMachine }}"
+              >{{ $dateHuman }}</time
+            >
+
+            <div class="text-sm">{{ .Summary }}</div>
+          </article>
+        </li>
+      {{- end }}
+    </ol>
+</div>

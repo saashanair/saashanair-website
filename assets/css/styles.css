@@ -1,0 +1,6 @@
+/* Resize the image */
+#logo {
+    width: 60%;
+    max-width: 800px;
+    height: auto;
+  }

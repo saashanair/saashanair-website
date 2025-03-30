@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "katex": "^0.16.21",
+    "vis-network": "^9.1.9"
+  }
+}
