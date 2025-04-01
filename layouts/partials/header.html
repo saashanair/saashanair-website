@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ $css := resources.Get "css/styles.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+    <script defer data-domain="saashanair.com" src="https://plausible.io/js/script.js"></script>
   </head>
 
 <div>
