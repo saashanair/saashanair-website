@@ -1,0 +1,67 @@
+---
+title: "Weeknotes 4"
+date: 2025-05-04
+---
+
+---
+**TL;DR:** Attending my cousins wedding; Connecting with my South Indian roots; Cross-country adventures with amazing Lassi; Walk down memory lane; 
+
+---
+
+<!-- more -->
+
+Hello again! It has been a while since my last post. It wasn’t intentional, I promise! I genuinely tried to write a few times, but things got in the way. The silver lining, though, is that I learned that I do enjoy writing these. I was worried about it feeling like a bit of a chore {{< backlink "weeknotes_20250330" "when I set this challenge">}}, but not being able to make the space to write made me quite angsty.
+
+I am doing something a bit uncharacteristic for weeknotes. I do want to log the events of the weeks that I missed, so I am splitting this up. This post will cover the whirlwind adventures from April 14-27, and the next one will bring us back to the usual weekly rhythm for the week commencing the 28th.
+
+### April 14-17: Prepping for India
+Johan and I flew to India on April 17, and the lead-up was every bit as chaotic as you'd expect with work, emails, meetings and last-minute prep. Thankfully, for once, we’d packed ahead of time, which saved our sanity.
+
+### April 18: Kochi - Part 1
+We landed in Kochi on the 18th, completely shattered after a sleepless overnight flight from London. Determined to beat the jet lag, we powered through and stayed awake for nearly 40 hours (the first of many on this trip!). We stayed at Vivanta Ernakulam, what a lovely experience. The staff was so warm and caring. For lunch, we headed to Grand Pavilion for some Kerala-style fish curry and fish fry. Later, needing caffeine and a place to work, we found ourselves at Chai Sutta Bar.  We then wandered over to Centre Square Mall, which turned out to be a bit underwhelming. We had planned on checking out Watson’s bar that evening, only to find out it was closed for Good Friday. When it started pouring, we decided to dine in. Our plan to grab biryani fell through (they were sold out by 9 p.m.!). So we ordered some Malabar Paratha and curry instead, and Johan surprised me with Domino’s garlic breadsticks. They used to be high up on my list of things to have while in India, but sadly this time was not quite the same.
+
+###  April 19: Off to Guruvayur
+We finally tried Rahumania’s biryani (I wasn’t a huge fan, though Johan gave it a thumbs-up), and then headed to Guruvayur for my cousin’s wedding. The evening was a cozy get-together for both families and my first banana leaf meal of the trip. We headed early to bed, because the next day was meant to start super early.
+
+![A picture of Johan and me eating off of a banana leaf](/images/notes/weeknotes_20250504/guruvayur_bananaleaf1.JPG)
+
+### April 20: Wedding done!
+Temple day! We were at Guruvayur Temple by 7 a.m. after a quick photoshoot with the bride. I wore a custom-designed corset top with a traditional skirt — my favorite outfit of the trip (the tailor absolutely nailed the fit!). Guruvayur weddings, we learned, are fascinatingly fast. Blink and you’ll miss it. Each family gets a slot, and within minutes, it’s all done. We joked that it felt like a conveyor belt of weddings. Later, there was a proper ceremony in a hall with the puja, garland exchange and the whole shebang. Meal number two on a banana leaf (yes, with a spoon, I never really learnt to eat with my fingers). Johan’s love for South Indian food was expected, but my own enjoyment was a pleasant surprise. Dad would have been proud of me embracing my South Indian side. After lunch, we returned to Kochi for a bit of rest (and work, of course). 
+
+![A picture of Johan and me ready for the Guruvayur wedding](/images/notes/weeknotes_20250504/guruvayur.jpg)
+
+### April 21: Kochi -  Part 2 / Wedding reception 1
+The morning was relaxed. Did a bit of work, went for a swim, and had a delicious South Indian thali (on a banana leaf) with two fish dishes at Kannimango. Then came a 3-hour parlour session for hair and saree draping in prep for the wedding reception. I even became a model! The hairstylist wanted to record content for his Instagram while he worked on my hair. This was only the third time in my life I wore a saree, and for once, I actually felt good in it. It made me feel surprisingly confident. 
+
+![A picture of Johan and me ready for the reception in Kochi](/images/notes/weeknotes_20250504/kochi_reception.jpg)
+
+### April 22-23: Our cross-country adventure
+Then came the true test of our endurance. We caught a morning train from Kochi to Kasaragod, followed by a 45-minute cab ride home. We spent the next 3 hours catching up with mum, eating home-cooked lunch, and cuddling all our four-legged babies (2 dogs and 8 cats) and then we were off again. A 2-hour cab ride got us to Mangalore, where we boarded a flight to Mumbai, endured a six-hour layover (thank goodness for lounge access), and finally flew to Chandigarh.
+
+The reason for this detour? Paperwork to sell our family flat. With dad gone, maintaining it long-term did not make sense. We spent the entire morning sorting things out at government offices.
+
+The best part of this trip, the food! We kicked off the day with enormous aloo paranthas and tall glasses of lassi. On our way back to the airport to catch our flight to Goa, we stopped at a roadside dhaba for a thali of black dal, paneer masala, yummiest crispy tandoori paranthas and of course more lassi. Johan came out of this trip totally in love with it.
+
+From Chandigarh, we flew to Goa via Delhi. Once we reached home (Johan’s from Goa), we crashed. 
+
+![A picture of the yummy aloo parantha](/images/notes/weeknotes_20250504/aloo_parantha.jpg)
+*The aloo parantha was so good!*
+
+### April 24: Dancing the night away
+My brother-in-law and his wife celebrated their civil marriage (the Goan wedding to come!). A quiet dinner with both sides of the family, followed by a night of dancing with friends was just what I needed.
+
+### April 25: Goa day 2
+Our last full day in Goa. I had work to finish so Johan dropped me off at Fika Café (I feel I am somehow more productive in cafes). A quick dentist visit, some last-minute gift shopping, and we were done.
+
+![Goan beach](/images/notes/weeknotes_20250504/goa_beach.jpg)
+*The rare moment of calm on this entire trip!*
+
+### April 26: A walk down memory lane in Pune
+We left home at 4 a.m, for a 6am flight to Pune. Breakfast with my grandparents, lunch at Malaka Spice (ah love their Burmese noodles!), and a sweet reunion with a friend I hadn’t seen in 20 years. In the evening, I took Johan to see my university, hostel, and old hangout spots. We had the iconic chocolate toast at Flavour Street, soft serve at Cream California (sadly it didn’t taste as good as I remembered) and tea from Goodluck Café. We finished the night with a drink at Toit and Fat Pigeon (still dreaming about the guava cider and blueberry mead!).
+![The chocolate toast in Pune](/images/notes/weeknotes_20250504/pune_chocolate_toast.JPG)
+
+### April 27: Wedding reception 2
+Our final day in India was spent showing my in-laws around Pune before attending my cousin’s reception. We had breakfast at a Parsi café in Kalyani Nagar, visited the Phoenix mall, and ended the trip with a lovely evening of dancing and family time at the reception in RSI.
+
+
+By April 28, I was more than ready to head home. This trip was incredible. I reconnected with friends, family and my roots. But it was so packed that I came back needing a vacation to recover from my vacation!
