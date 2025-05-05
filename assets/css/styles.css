@@ -4,3 +4,12 @@
     max-width: 800px;
     height: auto;
   }
+
+  img + em { 
+    color: #a9a9a9;
+    font-size: smaller;
+  }
+
+  img {
+    width: 50%;
+  }
