@@ -34,3 +34,4 @@ Those moments lit the fire that kept me going. More soon, once I catch my breath
     alt="Screenshot of my LinkedIn post about AI Knowledge Hub" 
 >}}
 
+**Aside:** Renamed “weeknotes” to “logs” and included date ranges, as they don’t always follow a weekly rhythm.
