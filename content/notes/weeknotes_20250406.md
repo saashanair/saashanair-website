@@ -4,6 +4,8 @@ date: 2025-04-06
 ---
 
 ---
+_Reporting period: 31 March - 06 April, 2025_
+
 **TL;DR:** Johan turns British; New friends at the Think AI for Government event; First User Test and opening night at 081 pizzeria's Shoreditch location; Manakish, my new favourite food item?;
 
 ---

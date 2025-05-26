@@ -4,6 +4,8 @@ date: 2025-04-13
 ---
 
 ---
+_Reporting period: 07 April - 13 April, 2025_
+
 **TL;DR:** Bitty week, but lovely weekend in Porto;
 
 ---

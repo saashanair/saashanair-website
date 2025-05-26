@@ -4,6 +4,8 @@ date: 2025-05-05
 ---
 
 ---
+_Reporting period: 28 April - 04 May, 2025_
+
 **TL;DR:** Finally back home; Slow week; 
 
 ---

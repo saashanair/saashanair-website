@@ -4,6 +4,8 @@ date: 2025-05-24
 ---
 
 ---
+_Reporting period: 05 May - 23 May, 2025_
+
 **TL;DR:** The Launch Edition: AI Knowledge Hub is finally live! 🚀
 
 ---

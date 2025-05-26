@@ -4,6 +4,8 @@ date: 2025-05-04
 ---
 
 ---
+_Reporting period: 14 April - 27 April, 2025_
+
 **TL;DR:** Attending my cousins wedding; Connecting with my South Indian roots; Cross-country adventures with amazing Lassi; Walk down memory lane; 
 
 ---

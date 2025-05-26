@@ -4,6 +4,8 @@ date: 2025-03-30
 ---
 
 ---
+_Reporting period: 24 March - 30 March, 2025_
+
 **TL;DR:** Experimenting with weeknotes; New website, who dis?; Women in AI Security vibes; Reflections on the Policy Foundations Programme;
 
 ---
