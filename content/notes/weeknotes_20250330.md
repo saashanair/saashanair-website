@@ -1,5 +1,5 @@
 ---
-title: "Weeknotes 1"
+title: "Log #1: Experimenting with weeknotes"
 date: 2025-03-30
 ---
 

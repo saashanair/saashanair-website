@@ -1,5 +1,5 @@
 ---
-title: "Weeknotes 5"
+title: "Log #5: Welcoming a slow week"
 date: 2025-05-05
 ---
 

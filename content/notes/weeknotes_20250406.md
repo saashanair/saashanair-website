@@ -1,5 +1,5 @@
 ---
-title: "Weeknotes 2"
+title: "Log #2: Johan is British"
 date: 2025-04-06
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Weeknotes 4"
+title: "Log #4: Cross-India Adventures"
 date: 2025-05-04
 ---
 

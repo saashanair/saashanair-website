@@ -1,5 +1,5 @@
 ---
-title: "Weeknotes 6"
+title: "Log #6: AI Knowledge Hub is live!"
 date: 2025-05-24
 ---
 

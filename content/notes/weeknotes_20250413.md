@@ -1,5 +1,5 @@
 ---
-title: "Weeknotes 3"
+title: "Log #3: Visiting Porto"
 date: 2025-04-13
 ---
 
