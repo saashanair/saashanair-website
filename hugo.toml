@@ -42,6 +42,8 @@ enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's g
       unsafe = true
       [markup.goldmark.parser.attribute]
         block = true
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [params]
   # Set how dates should appear across the site.
