@@ -5,11 +5,15 @@
     height: auto;
   }
 
+  img {
+    width: 50%;
+  }
+
+  img.large {
+    width: 100%; /* Or auto, or another size */
+  }
+
   img + em { 
     color: #a9a9a9;
     font-size: smaller;
-  }
-
-  img {
-    width: 50%;
   }
