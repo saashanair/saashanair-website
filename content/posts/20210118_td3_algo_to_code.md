@@ -9,7 +9,7 @@ math: true
 
 - {{< backlink "20210112_td3_theory" "Part 1">}}: theory explaining the different components that build up the algorithm.
 - Part 2: how the algorithm is translated to code.
-- [Part 3](https://www.saashanair.com/td3-hyperparameter-experiments/): how different hyperparameters affect the behaviour of the algorithm.
+- {{< backlink "20210125_td3_and_its_hyperparams" "Part 3">}}: how different hyperparameters affect the behaviour of the algorithm.
 
 **NOTE 2:** The complete code discussed in this post can be found [here](https://github.com/saashanair/rl-series/tree/master/td3) on Github.
 
