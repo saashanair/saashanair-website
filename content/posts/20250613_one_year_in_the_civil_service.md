@@ -37,8 +37,8 @@ Unfortunately, the problem is that they usually have very low engagement rates. 
 I came into this role as a bit of an experiment, hoping to gain an understanding of how 'policy land' works. I have enjoyed the work and absolutely love my colleagues. There is something refreshingly different about the civil service culture, though I cannot quite put my finger on it. But I do miss building, learning, and growing.
 
 The moments that have stood out most for me this year were when I got to deliver something tangible. Two projects in particular:
-* *The AI Knowledge Hub:* A fast-paced build that brought together user needs, delivery pressure, and strategic thinking.
-* *The Manchester Prize:* A chance to shape something meaningful. It aims to support the use of AI for public good and help drive economic growth. It also led to some fascinating conversations with people in the energy sector and helped me understand the challenges they face.
+* *The [AI Knowledge Hub](https://ai.gov.uk/knowledge-hub/):* A fast-paced build that brought together user needs, delivery pressure, and strategic thinking.
+* *The [Manchester Prize](https://manchesterprize.org):* A chance to shape something meaningful. It aims to support the use of AI for public good and help drive economic growth. It also led to some fascinating conversations with people in the energy sector and helped me understand the challenges they face.
 
 Those experiences reminded me that I get the most energy from making things, learning new skills, and having conversations with people.
 
