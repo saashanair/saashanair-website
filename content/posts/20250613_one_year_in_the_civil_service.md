@@ -33,14 +33,19 @@ Before joining, I had never heard of a public consultation. Having spent some ti
 
 Unfortunately, the problem is that they usually have very low engagement rates. There is a lot more potential here. I wonder whether technology could be used to help reframe consultations as opportunities for real dialogue and co-creation.
 
-### 5. I am a builder at heart
-I came into this role as a bit of an experiment, hoping to gain an understanding of how 'policy land' works. I have enjoyed the work and absolutely love my colleagues. There is something refreshingly different about the civil service culture, though I cannot quite put my finger on it. But I do miss building, learning, and growing.
+### 5. Senior sponsorship really matters
+Even the best ideas need the right backing to move forward. Without support from the right people, it can be difficult to create the space and momentum a project needs.
+
+While this is true in the private sector, the effect feels especially amplified in the public sector. Progress depends not only on the strength of the idea, but also on who is advocating for it, how well it aligns with broader priorities, and whether it has visible senior support. Having that sponsorship is not just helpful. It is essential. Without it, even the most promising work can struggle to gain traction.
+
+## A Personal Reflection: I Am a Builder at Heart
+I came into this role as a bit of an experiment, hoping to gain an understanding of how 'policy land' works. I have enjoyed the work and absolutely love my colleagues. There is something refreshingly different about the civil service culture, though I cannot quite put my finger on it. But I do miss building, learning, and growing through hands-on work.
 
 The moments that have stood out most for me this year were when I got to deliver something tangible. Two projects in particular:
 * *The [AI Knowledge Hub](https://ai.gov.uk/knowledge-hub/):* A fast-paced build that brought together user needs, delivery pressure, and strategic thinking.
 * *The [Manchester Prize](https://manchesterprize.org):* A chance to shape something meaningful. It aims to support the use of AI for public good and help drive economic growth. It also led to some fascinating conversations with people in the energy sector and helped me understand the challenges they face.
 
-Those experiences reminded me that I get the most energy from making things, learning new skills, and having conversations with people.
+These experiences reminded me that I get the most energy from making things, learning new skills, and engaging with people who are equally curious and committed.
 
 ## Looking Ahead
 It has been a busy, strange, insightful, and rewarding year. I still feel like I am learning how _this_ world works, how to navigate its acronyms, lingo, and networks. But I am grateful for the exposure I have had, the people I get to work with, and the chance to make things that matter.
