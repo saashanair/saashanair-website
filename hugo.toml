@@ -28,9 +28,13 @@ enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's g
     pageRef = '/notes'
     weight = 30
   [[menus.main]]
-    name = 'Graph'
-    pageRef = '/graph'
+    name = 'Newsletter'
+    pageRef = '/sufficiently_explained'
     weight = 40
+  #[[menus.main]]
+  #  name = 'Graph'
+  #  pageRef = '/graph'
+  #  weight = 40
 
 [markup]
   [markup.highlight]
