@@ -1,0 +1,12 @@
+{{ $tag := "sufficiently explained" }}
+{{ $pages := where site.RegularPages "Params.tags" "intersect" (slice $tag) }}
+{{ $recent := first 3 (sort $pages "Date" "desc") }}
+
+<ul class="recent-se-posts">
+  {{- range $recent }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-sm text-gray-500"> - {{ .Date.Format "Jan 2, 2006" }}</time>
+    </li>
+  {{- end }}
+</ul>
