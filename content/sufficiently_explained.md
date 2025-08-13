@@ -28,4 +28,4 @@ Why not explore some of the latest posts?
 ## Ready to get started?
 Join a growing community of curious minds. Enter your email below to receive ***Sufficiently Explained*** straight to your inbox, no spam, unsubscribe anytime.
 
-{{< newsletter_signup >}}
+{{< newsletter_signup_landing >}}
