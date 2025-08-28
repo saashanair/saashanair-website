@@ -46,6 +46,8 @@ Let’s make this concrete with some business examples.
 
 ✅ Why it works: The AI now knows the audience (executives), the format (one page, bullet points), and the priorities (risks and decisions).
 
+{{< newsletter_signup_blogpost >}}
+
 ## The Jagged Frontier of AI Capabilities
 
 Even with excellent prompts, AI has limitations. As Ethan Mollick notes in *Centaurs and Cyborgs: On the Jagged Frontier of AI* (2023), “On some tasks AI is immensely powerful, and on others it fails completely or subtly.” This unevenness of AI’s capabilities is what Mollick and his colleagues call the “Jagged Frontiers.” While AI can greatly boost productivity in certain tasks, it can still stumble on others, even when they seem straightforward to a human. 
