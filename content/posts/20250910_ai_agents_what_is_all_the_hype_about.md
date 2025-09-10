@@ -40,7 +40,7 @@ In this LLM-powered setup, the agent’s environment is often digital rather tha
 The problem is that the word “agent” is overloaded. Depending on who you ask, it could mean a chatbot, a workflow automation system, or a fully autonomous digital worker. To cut through the noise, I find it useful to think about agents in terms of **levels of autonomy**.
 
 <img src="/images/posts/20250910_ai_agents_what_is_all_the_hype_about/ai_agent_autonomy.png" class="large" alt="">
-<em>Fig 1: Levels of autonomy of AI agents</em>
+<em>AI agents exist on a spectrum of autonomy</em>
 
 ⚠️ Caveat: none of this is standardised, as the field is still evolving. Think of this more as a mental model than a fixed taxonomy.
 
