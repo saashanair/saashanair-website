@@ -42,7 +42,7 @@ The problem is that the word “agent” is overloaded. Depending on who you ask
 <img src="/images/posts/20250910_ai_agents_what_is_all_the_hype_about/ai_agent_autonomy.png" class="large" alt="">
 <em>AI agents exist on a spectrum of autonomy</em>
 
-⚠️ Caveat: none of this is standardised, as the field is still evolving. Think of this more as a mental model than a fixed taxonomy.
+⚠️ Caveat: this is not a standard taxonomy. The field is still evolving. It is simply a mental model I find useful to keep things straight in my own head.
 
 
 ### **Workflow Orchestrators (high autonomy)**
