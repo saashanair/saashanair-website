@@ -40,18 +40,19 @@ In AI, sharing training and evaluation datasets is hugely valuable. It improves 
 
 Openness in AI is no longer binary. Even when labs label their models “open source”, that [label doesn’t always hold up under scrutiny](https://opensource.org/blog/metas-llama-2-license-is-not-open-source). So, the next time you see a company praised for being “open”, ask yourself:
 
-- Are the **weights** open?
 - Is the **code** open, including training pipelines and model architecture?
+- Are the **weights** open?
 - Is the **data** open?
 
 | Code | Weights | Data | Example(s) | Notes |
 | --- | --- | --- | --- | --- |
 | ❌ | ❌ | ❌ | **GPT-4, Claude, Gemini** | Fully closed; only accessible via API. |
-| ✅ | ❌ | ❌ | **Original Transformer (Vaswani et al. 2017)**, many research repos | Papers + code open, but no large pretrained weights. |
-| ❌ | ✅ | ❌ | **LLaMA (Meta), GPT-OSS (OpenAI)** | Weights released (with non-commercial license), but not training code or data. |
-| ✅ | ✅ | ❌ | **BERT (Google, 2018)**, **RoBERTa (Meta), Mixtral (Mistral)** | Code + pretrained weights available, but trained on internal/private corpora. |
-| ✅ | ❌ | ✅ | **Academic reproducibility projects**, smaller benchmarks (e.g., models trained from scratch on ImageNet using public repos) | Rare at large scale; you can re-train but no pretrained weights shipped. |
-| ❌ | ✅ | ✅ | **Some Kaggle competitions / community distillations** (e.g., pretrained checkpoints + dataset dumps but no training scripts) | Less common at foundation-model scale, but seen in open competitions. |
-| ✅ | ✅ | ✅ | **Stable Diffusion (Stability AI)**, **BLOOM (BigScience)** | As close as it gets to “fully open” — code, weights, and datasets (or a fully documented pipeline) all released. |
+| ✅ | ❌ | ❌ | **Original Transformer (Vaswani et al. 2017), many research repos** | Code open, no pretrained weights. |
+| ❌ | ✅ | ❌ | **LLaMA (Meta), GPT-OSS (OpenAI)** | Weights released; code and data closed. |
+| ✅ | ✅ | ❌ | **BERT (Google, 2018), RoBERTa (Meta), Mixtral (Mistral)** | Code + weights open; trained on private data. |
+| ✅ | ❌ | ✅ | **Academic reproducibility projects**, smaller benchmarks (e.g., ImageNet) | Rare at large scale; retrainable but no pretrained weights shipped. |
+| ❌ | ✅ | ✅ | **Some Kaggle competitions / community distillations** (checkpoints + datasets, no training scripts) | Less common at foundation-model scale, but seen in open competitions. |
+| ✅ | ✅ | ✅ | **Stable Diffusion (Stability AI), BLOOM (BigScience)** | Fully open: code, weights, datasets (or fully documented pipeline) all released. |
+
 
 The table shows that openness is multi-layered. You must look at which components are shared and under what terms. Sharing all three (code, weights and data) is the closest analogue to traditional open source software, enabling anyone to reproduce results, verify claims, and build upon the work. Most models sit somewhere along this spectrum, being open in some ways but closed in others. Understanding these nuances is key to evaluating claims of “openness” in AI.
