@@ -29,7 +29,8 @@ enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's g
     weight = 30
   [[menus.main]]
     name = 'Newsletter'
-    pageRef = '/sufficiently_explained'
+    url = 'https://sufficientlyexplained.substack.com/'
+    #pageRef = '/sufficiently_explained'
     weight = 40
   #[[menus.main]]
   #  name = 'Graph'
