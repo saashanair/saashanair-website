@@ -8,7 +8,7 @@ I have recently found myself in rooms where the term “AI” means different th
 
 If you have ever felt confused by these terms, know that it is not your fault. The field of AI has always suffered from moving goalposts. On top of that, new breakthroughs reshape the language faster than most people can keep up with. But meaningful conversations rely on shared understanding, and when we all use the same words differently, we risk talking past each other.
 
-{{< newsletter_signup_blogpost >}}
+<!--{{< newsletter_signup_blogpost >}}-->
 
 That is why I am writing this post, as part of the first issue of my newsletter, *Sufficiently Explained*. The aim is to clarify what each of these terms mean and how they relate, so you can use them confidently in your next meeting!
 

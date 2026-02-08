@@ -46,7 +46,7 @@ Let’s make this concrete with some business examples.
 
 ✅ Why it works: The AI now knows the audience (executives), the format (one page, bullet points), and the priorities (risks and decisions).
 
-{{< newsletter_signup_blogpost >}}
+<!-- {{< newsletter_signup_blogpost >}} -->
 
 ## The Jagged Frontier of AI Capabilities
 

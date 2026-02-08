@@ -33,7 +33,7 @@ This shift means we can now build agents that are general-purpose, conversationa
 
 In this LLM-powered setup, the agent’s environment is often digital rather than physical: your email and calendar system, or enterprise tools such as Jira and Confluence. Essentially, the environment is where the agent gathers information and decides its next move. Agents then act through tools, interacting with APIs, databases, or applications that let them perform meaningful work, such as retrieving data, sending emails, or scheduling meetings.
 
-{{< newsletter_signup_blogpost >}}
+<!-- {{< newsletter_signup_blogpost >}} -->
 
 ## Making Sense of Today’s Agents: Autonomy as a Spectrum
 
