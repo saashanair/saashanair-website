@@ -1,6 +1,6 @@
 ---
 title: "I Don’t Fit the Job Title. And That’s the Point: Making the case for integrators in a world divided by generalists and specialists."
-date: 2026-02-08
+date: 2026-03-22
 tags: [sufficiently explained, ai]
 ---
 
