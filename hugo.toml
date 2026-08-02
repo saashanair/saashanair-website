@@ -123,24 +123,32 @@ enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's g
     # Block CommonCrawl from indexing your site. CommonCrawl data is often used to train AI models.
     # Learn more at https://commoncrawl.org/ccbot
     # Default: false
-    blockCC = false
+    blockCC = true
 
     # Block various crawlers associated with AI and machine learning model training.
     # Crawler list from https://github.com/ai-robots-txt/ai.robots.txt
     # Default: false
-    blockAI = true
-
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/saashanair"
+    blockAI = false
 
   [[params.socialIcons]]
     name = "linkedin"
     url = "https://www.linkedin.com/in/saashanair/"
 
   [[params.socialIcons]]
+    name = "substack"
+    url = "https://substack.com/@saashanair"
+
+  [[params.socialIcons]]
     name = "twitter"
     url = "https://x.com/saashanair"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/saashanair"
+
+  [[params.socialIcons]]
+    name = "google-scholar"
+    url = "https://scholar.google.com/citations?user=VvvXpOQAAAAJ&hl=en"
 
   [[params.socialIcons]]
     name = "mail"

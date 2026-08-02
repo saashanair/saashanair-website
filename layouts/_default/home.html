@@ -9,8 +9,10 @@
       {{ . }}
     {{ end -}}
     <section>
-        <!-- {{ partial "socials.html" . }} -->
-      </section>
+      <div class="social-links">
+        <b><i>More of me online:</i></b> {{ partial "socials.html" . }}
+      </div>
+    </section>
   </article>
 
   {{- if default true site.Params.home.showRecentPosts }}

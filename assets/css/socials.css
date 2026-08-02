@@ -1,8 +1,15 @@
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
 .social-icons {
-    display: flex; /* Use flexbox */
-    align-items: center; /* Align icons vertically */
-    gap: 15px; /* Add spacing between icons */
-    justify-content: center; /* Center align (optional) */
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .social-icons a svg {
@@ -12,6 +19,18 @@
 
 .social-icons a:hover svg {
     stroke: #0284c7; /* Change color on hover */
+}
+
+.social-icons a svg.social-logo-icon {
+    width: 24px;
+    height: 24px;
+    fill: #b6bfca; /* Default icon color */
+    stroke: none;
+    transition: fill 0.3s ease;
+}
+
+.social-icons a:hover svg.social-logo-icon {
+    fill: #0284c7; /* Change color on hover */
 }
 
 .sr-only {

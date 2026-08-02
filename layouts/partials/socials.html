@@ -1,21 +1,18 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ $css := resources.Get "css/socials.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
-    <script src="https://unpkg.com/feather-icons"></script>
-  </head>
-
-  <section id="social-media">
+<section>
     <div class="social-icons">
         {{ range .Site.Params.socialIcons }}
-        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name | title }}" class="tooltip">
-            <i data-feather="{{ .name }}" aria-hidden="true"></i>
-            <span class="tooltip-text">{{ .name | title }}</span>
-        </a>        
+        {{ $label := replace .name "-" " " | title }}
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $label }}" class="tooltip">
+            {{ if or (eq .name "substack") (eq .name "google-scholar") }}
+              {{ partial (printf "svg/%s.html" .name) }}
+            {{ else }}
+              <i data-feather="{{ .name }}" aria-hidden="true"></i>
+            {{ end }}
+            <span class="tooltip-text">{{ $label }}</span>
+        </a>
         {{ end }}
     </div>
     <script>
         feather.replace();
-    </script>      
-  </section>
+    </script>
+</section>
