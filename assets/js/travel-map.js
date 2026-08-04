@@ -43,13 +43,13 @@ function pinIcon(hasNote, index) {
 
   return L.divIcon({
     className: 'travel-pin',
-    html: `<svg width="30" height="40" viewBox="0 0 30 40" style="animation-delay:${delay}ms">
+    html: `<svg width="22" height="30" viewBox="0 0 30 40" style="animation-delay:${delay}ms">
       <path d="M15 0C6.7 0 0 6.7 0 15c0 11.3 15 25 15 25s15-13.7 15-25C30 6.7 23.3 0 15 0z" fill="${color}" stroke="#fff" stroke-width="2"/>
       <circle cx="15" cy="15" r="6" fill="#fff"/>
     </svg>`,
-    iconSize: [30, 40],
-    iconAnchor: [15, 40],
-    popupAnchor: [0, -36]
+    iconSize: [22, 30],
+    iconAnchor: [11, 30],
+    popupAnchor: [0, -26]
   });
 }
 
