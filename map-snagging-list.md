@@ -8,9 +8,9 @@ Ideas to work through for the `/travel-map` page, roughly in the order raised.
       travel entry that explicitly points at a note slug, overriding the automatic
       title match. Default stays zero-config for the common single-place case.
 
-- [ ] **Pins are too big / cluttered** — shrink the pin SVG size (currently 30x40).
+- [x] **Pins are too big / cluttered** — shrink the pin SVG size (currently 30x40).
 
-- [ ] **Hover tooltip with place name** — use Leaflet's native `bindTooltip` so the
+- [x] **Hover tooltip with place name** — use Leaflet's native `bindTooltip` so the
       name shows on hover, reducing the need to click every pin to identify it.
 
 - [ ] **Declutter pins that are close together** — use the `Leaflet.markercluster`
