@@ -160,3 +160,8 @@
   country: "Greece"
   lat: 37.97556
   lng: 23.73483
+
+- name: "Singapore"
+  country: "Singapore"
+  lat: 1.28992
+  lng: 103.85191
