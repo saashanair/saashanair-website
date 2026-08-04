@@ -24,7 +24,7 @@ Ideas to work through for the `/travel-map` page, roughly in the order raised.
       `static/images/travels/<slugified-name>/`, template auto-discovers them at
       build time (Hugo's `os.ReadDir`). No YAML editing, no note required.
 
-- [ ] **Indicate "lived here" vs. "visited"** — optional `type: lived` field on an
+- [x] **Indicate "lived here" vs. "visited"** — optional `type: lived` field on an
       entry (default `visited`), its own pin color/icon and popup phrasing. Could pair
       with optional `from`/`to` year fields.
 
