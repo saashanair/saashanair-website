@@ -13,7 +13,7 @@ Ideas to work through for the `/travel-map` page, roughly in the order raised.
 - [x] **Hover tooltip with place name** — use Leaflet's native `bindTooltip` so the
       name shows on hover, reducing the need to click every pin to identify it.
 
-- [ ] **Declutter pins that are close together** — use the `Leaflet.markercluster`
+- [x] **Declutter pins that are close together** — use the `Leaflet.markercluster`
       plugin (pins within a radius collapse into a count badge, split apart on zoom)
       rather than fixed country/region pins. Clustering adapts continuously with zoom
       and keeps exact geography; region pins would need every place manually assigned
