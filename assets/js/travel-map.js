@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     maxZoom: 18
   }).addTo(map);
 
+  const clusterGroup = L.markerClusterGroup({
+    iconCreateFunction: clusterIcon,
+    showCoverageOnHover: false,
+    spiderfyOnMaxZoom: true,
+    maxClusterRadius: 50
+  });
+
   const markers = places.map((place, index) => {
     const hasNote = Boolean(place.url);
     const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, index) });
@@ -28,15 +35,29 @@ document.addEventListener('DOMContentLoaded', () => {
       map.flyTo(targetLatLng, targetZoom, { duration: 0.8 });
     });
 
-    return marker.addTo(map);
+    return marker;
   });
+
+  clusterGroup.addLayers(markers);
+  map.addLayer(clusterGroup);
 
   map.on('popupopen', (e) => initCarousel(e.popup.getElement()));
 
   if (markers.length) {
-    map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2));
+    map.fitBounds(clusterGroup.getBounds().pad(0.2));
   }
 });
+
+function clusterIcon(cluster) {
+  const count = cluster.getChildCount();
+  const size = count < 5 ? 32 : count < 15 ? 38 : 44;
+
+  return L.divIcon({
+    className: 'travel-cluster',
+    html: `<div style="width:${size}px;height:${size}px;">${count}</div>`,
+    iconSize: [size, size]
+  });
+}
 
 function pinIcon(hasNote, index) {
   const color = hasNote ? '#3b82f6' : '#94a3b8';
