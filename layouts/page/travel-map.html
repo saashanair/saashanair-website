@@ -31,6 +31,8 @@
       {{ $places = $places | append $entry }}
     {{ end }}
 
-    <div id="travel-map" data-travels="{{ $places | jsonify }}"></div>
+    <div class="travel-map-bleed">
+      <div id="travel-map" data-travels="{{ $places | jsonify }}"></div>
+    </div>
   </article>
 {{ end }}

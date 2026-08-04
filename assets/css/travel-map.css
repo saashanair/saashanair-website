@@ -1,16 +1,23 @@
-/* The theme wraps every page in max-w-prose (~65ch), which is right for
-   blog posts but way too narrow for an interactive map. Widen just this
-   page. Plain CSS (not a Tailwind utility) so it doesn't depend on the
-   theme's Tailwind build picking up a class it doesn't already ship. */
-.travel-map-page {
-  max-width: 64rem !important;
-}
-
-.travel-map-page main {
-  max-width: none !important;
+/* The theme wraps every page in max-w-prose (~65ch), which keeps the nav,
+   title, and intro text consistent with every other page. Rather than
+   widening the whole page (which made the nav bar shift width relative to
+   other pages), only the map itself breaks out of that column — a
+   standard "full-bleed" trick: the wrapper spans the viewport and the map
+   re-centers and caps its own width inside that. Gated to tablet+ so
+   mobile keeps the map inset within the page padding, matching every
+   other element on small screens. */
+@media (min-width: 768px) {
+  .travel-map-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+  }
 }
 
 #travel-map {
+  max-width: 64rem;
+  margin: 0 auto;
   height: clamp(20rem, 70vh, 40rem);
   border-radius: 12px;
   overflow: hidden;
