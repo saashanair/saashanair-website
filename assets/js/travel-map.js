@@ -89,7 +89,7 @@ function pinIcon(hasNote, index) {
 
 function tooltipHTML(place, hasNote) {
   const dot = hasNote ? '<span class="travel-tooltip__dot"></span>' : '';
-  return `${dot}${escapeHTML(place.name)}`;
+  return `${dot}${escapeHTML(place.name)}, ${escapeHTML(place.country)}`;
 }
 
 function popupHTML(place, hasNote) {
