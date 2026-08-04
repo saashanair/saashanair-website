@@ -24,9 +24,11 @@ Ideas to work through for the `/travel-map` page, roughly in the order raised.
       `static/images/travels/<slugified-name>/`, template auto-discovers them at
       build time (Hugo's `os.ReadDir`). No YAML editing, no note required.
 
-- [x] **Indicate "lived here" vs. "visited"** — optional `type: lived` field on an
-      entry (default `visited`), its own pin color/icon and popup phrasing. Could pair
-      with optional `from`/`to` year fields.
+- [x] **Indicate "lived here" vs. "visited"** — lived places live in their own
+      `data/stays.yaml` (own pin color/icon, `from`/`to` year fields) rather than a
+      `type` flag on `travels.yaml`. Popup shows "Lived here · 2016-2020" on the same
+      line/style as the visited-years tag — no separate header pill, so the header
+      layout stays identical across every place type.
 
 - [x] **Short blurbs without a full recommendations post** — optional `blurb:`
       free-text field directly in the yaml entry. Composes with photos/recommendations
