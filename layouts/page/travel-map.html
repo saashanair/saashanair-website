@@ -23,7 +23,7 @@
         {{ $images := findRE `(?i)/images/notes/[^)\s"']+\.(?:jpg|jpeg|png|webp)` $note.RawContent }}
         {{ $entry = merge $entry (dict
           "url" $note.RelPermalink
-          "summary" ($note.Summary | plainify)
+          "summary" ($note.Plain | truncate 160)
           "images" ($images | uniq)
         ) }}
       {{ end }}

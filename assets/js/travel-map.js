@@ -10,38 +10,103 @@ document.addEventListener('DOMContentLoaded', () => {
     maxZoom: 18
   }).addTo(map);
 
-  const markers = places.map((place) => {
+  const markers = places.map((place, index) => {
     const hasNote = Boolean(place.url);
-    const marker = L.circleMarker([place.lat, place.lng], {
-      radius: 8,
-      weight: 2,
-      color: hasNote ? '#2563eb' : '#94a3b8',
-      fillColor: hasNote ? '#3b82f6' : '#cbd5e1',
-      fillOpacity: 0.9
+    const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, index) });
+
+    marker.bindPopup(popupHTML(place, hasNote), { maxWidth: 280 });
+    marker.on('click', () => {
+      const targetZoom = Math.max(map.getZoom(), 6);
+      // Center on a point above the pin (in pixel space) so the pin lands in
+      // the lower half of the map, leaving room for the popup above it.
+      const targetPoint = map.project(marker.getLatLng(), targetZoom).subtract([0, 150]);
+      const targetLatLng = map.unproject(targetPoint, targetZoom);
+
+      map.closePopup();
+      map.once('moveend', () => marker.openPopup());
+      map.flyTo(targetLatLng, targetZoom, { duration: 0.8 });
     });
-    marker.bindPopup(popupHTML(place, hasNote));
+
     return marker.addTo(map);
   });
+
+  map.on('popupopen', (e) => initCarousel(e.popup.getElement()));
 
   if (markers.length) {
     map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2));
   }
 });
 
+function pinIcon(hasNote, index) {
+  const color = hasNote ? '#3b82f6' : '#94a3b8';
+  const delay = Math.min(index * 60, 600);
+
+  return L.divIcon({
+    className: 'travel-pin',
+    html: `<svg width="30" height="40" viewBox="0 0 30 40" style="animation-delay:${delay}ms">
+      <path d="M15 0C6.7 0 0 6.7 0 15c0 11.3 15 25 15 25s15-13.7 15-25C30 6.7 23.3 0 15 0z" fill="${color}" stroke="#fff" stroke-width="2"/>
+      <circle cx="15" cy="15" r="6" fill="#fff"/>
+    </svg>`,
+    iconSize: [30, 40],
+    iconAnchor: [15, 40],
+    popupAnchor: [0, -36]
+  });
+}
+
 function popupHTML(place, hasNote) {
-  const title = `<strong>${escapeHTML(place.name)}</strong><br>${escapeHTML(place.country)}`;
-  if (!hasNote) return title;
+  const header = `
+    <div class="travel-popup__header">
+      <strong class="travel-popup__title">${escapeHTML(place.name)}</strong>
+      <span class="travel-popup__country">${escapeHTML(place.country)}</span>
+    </div>`;
 
-  const images = (place.images || [])
-    .map(
-      (src) =>
-        `<img src="${escapeHTML(src)}" alt="${escapeHTML(place.name)}" style="width:72px;height:72px;object-fit:cover;margin:2px;border-radius:4px;">`
-    )
-    .join('');
+  if (!hasNote) {
+    return `<div class="travel-popup">${header}<p class="travel-popup__visited">Visited 🧳</p></div>`;
+  }
 
-  const summary = place.summary ? `<p style="margin:6px 0;">${escapeHTML(place.summary)}</p>` : '';
+  const images = place.images || [];
+  const carousel = images.length ? carouselHTML(place.name, images) : '';
 
-  return `${title}${summary}<div style="display:flex;flex-wrap:wrap;max-width:240px;">${images}</div><a href="${escapeHTML(place.url)}">Read full recommendations &rarr;</a>`;
+  return `
+    <div class="travel-popup">
+      ${header}
+      ${carousel}
+      <p class="travel-popup__summary">${escapeHTML(place.summary)}</p>
+      <a class="travel-popup__link" href="${escapeHTML(place.url)}">Read full recommendations &rarr;</a>
+    </div>`;
+}
+
+function carouselHTML(name, images) {
+  const slides = images.map((src) => `<img src="${escapeHTML(src)}" alt="${escapeHTML(name)}">`).join('');
+
+  const nav =
+    images.length > 1
+      ? `<button class="travel-popup__nav travel-popup__nav--prev" aria-label="Previous photo">&#8249;</button>
+         <button class="travel-popup__nav travel-popup__nav--next" aria-label="Next photo">&#8250;</button>
+         <div class="travel-popup__dots">${images
+           .map((_, i) => `<span class="travel-popup__dot${i === 0 ? ' is-active' : ''}"></span>`)
+           .join('')}</div>`
+      : '';
+
+  return `<div class="travel-popup__carousel"><div class="travel-popup__slides">${slides}</div>${nav}</div>`;
+}
+
+function initCarousel(popupEl) {
+  const carousel = popupEl.querySelector('.travel-popup__carousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelector('.travel-popup__slides');
+  const dots = [...carousel.querySelectorAll('.travel-popup__dot')];
+  let index = 0;
+
+  const show = (i) => {
+    index = (i + dots.length) % dots.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, d) => dot.classList.toggle('is-active', d === index));
+  };
+
+  carousel.querySelector('.travel-popup__nav--prev')?.addEventListener('click', () => show(index - 1));
+  carousel.querySelector('.travel-popup__nav--next')?.addEventListener('click', () => show(index + 1));
 }
 
 function escapeHTML(str) {
