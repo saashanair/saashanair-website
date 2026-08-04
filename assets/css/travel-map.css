@@ -1,4 +1,17 @@
+/* The theme wraps every page in max-w-prose (~65ch), which is right for
+   blog posts but way too narrow for an interactive map. Widen just this
+   page. Plain CSS (not a Tailwind utility) so it doesn't depend on the
+   theme's Tailwind build picking up a class it doesn't already ship. */
+.travel-map-page {
+  max-width: 64rem !important;
+}
+
+.travel-map-page main {
+  max-width: none !important;
+}
+
 #travel-map {
+  height: clamp(20rem, 70vh, 40rem);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);

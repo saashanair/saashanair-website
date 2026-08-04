@@ -31,6 +31,6 @@
       {{ $places = $places | append $entry }}
     {{ end }}
 
-    <div id="travel-map" data-travels="{{ $places | jsonify }}" style="height: 32rem;"></div>
+    <div id="travel-map" data-travels="{{ $places | jsonify }}"></div>
   </article>
 {{ end }}
