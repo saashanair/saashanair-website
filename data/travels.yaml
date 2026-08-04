@@ -146,10 +146,10 @@
   lat: 38.70775
   lng: -9.13659
 
-- name: "Gran Canaria"
+- name: "Las Palmas de Gran Canaria"
   country: "Spain"
-  lat: 27.958
-  lng: -15.60623
+  lat: 28.12887
+  lng: -15.4349
 
 - name: "Sofia"
   country: "Bulgaria"
