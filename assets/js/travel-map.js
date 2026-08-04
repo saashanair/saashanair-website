@@ -102,27 +102,30 @@ function tooltipHTML(place, hasNote) {
 }
 
 function popupHTML(place, hasNote) {
+  const lived = place.type === 'lived';
+  const badge = lived ? '<span class="travel-popup__badge">🏠 Lived here</span>' : '';
   const header = `
     <div class="travel-popup__header">
       <strong class="travel-popup__title">${escapeHTML(place.name)}</strong>
-      <span class="travel-popup__country">${escapeHTML(place.country)}</span>
+      <span class="travel-popup__country">${escapeHTML(place.country)}</span>${badge}
     </div>`;
 
-  if (!hasNote) {
-    const status = place.type === 'lived' ? 'Lived here 🏠' : 'Visited 🧳';
-    return `<div class="travel-popup">${header}<p class="travel-popup__visited">${status}</p></div>`;
-  }
+  const blurb = place.blurb ? `<p class="travel-popup__blurb">${escapeHTML(place.blurb)}</p>` : '';
 
   const images = place.images || [];
   const carousel = images.length ? carouselHTML(place.name, images) : '';
 
-  return `
-    <div class="travel-popup">
-      ${header}
-      ${carousel}
-      <p class="travel-popup__summary">${escapeHTML(place.summary)}</p>
-      <a class="travel-popup__link" href="${escapeHTML(place.url)}">Read full recommendations &rarr;</a>
-    </div>`;
+  const recommendations = hasNote
+    ? `<p class="travel-popup__summary">${escapeHTML(place.summary)}</p>
+       <a class="travel-popup__link" href="${escapeHTML(place.url)}">Read full recommendations &rarr;</a>`
+    : '';
+
+  // Only fall back to a bare status line when there's nothing else to show —
+  // the lived-here badge above already covers that case on its own.
+  const hasContent = blurb || carousel || recommendations;
+  const fallback = !hasContent && !lived ? '<p class="travel-popup__visited">Visited 🧳</p>' : '';
+
+  return `<div class="travel-popup">${header}${blurb}${carousel}${recommendations}${fallback}</div>`;
 }
 
 function carouselHTML(name, images) {

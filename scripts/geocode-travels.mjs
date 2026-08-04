@@ -17,6 +17,11 @@ const HEADER = `# Master list of places visited, used to power the travel map.
 #
 # If a note exists under content/notes/ for a place (categories: travel,
 # title matching \`name\`), the map will link to it automatically.
+#
+# Optional fields:
+#   type: lived    — marks the pin/cluster as a place lived in, not just visited
+#   blurb: "..."   — a short note shown in the popup, independent of any linked
+#                    note (a place can have a blurb, a linked note, both, or neither)
 `;
 
 async function geocode(name, country) {

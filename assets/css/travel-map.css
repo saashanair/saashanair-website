@@ -139,6 +139,24 @@
   color: #0f172a;
 }
 
+.travel-popup__badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #92400e;
+  background: #fef3c7;
+  padding: 1px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.travel-popup__blurb {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #334155;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
 .travel-popup__country {
   font-size: 0.8rem;
   color: #64748b;
