@@ -59,7 +59,9 @@ function serializeValue(value) {
 function serialize(places) {
   const entries = places.map((place) => {
     const lines = Object.entries(place).map(([key, value]) => {
-      if (key === 'lat' || key === 'lng') return `${key}: ${value ?? ''}`;
+      // Blank rather than the literal string "null" for any unset field
+      // (lat/lng awaiting geocoding, or an unused optional field).
+      if (value === null || value === undefined) return `${key}:`;
       return `${key}: ${serializeValue(value)}`;
     });
     return lines.map((line, i) => (i === 0 ? `- ${line}` : `  ${line}`)).join('\n');
