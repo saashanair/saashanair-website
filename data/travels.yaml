@@ -165,3 +165,52 @@
   country: "Singapore"
   lat: 1.28992
   lng: 103.85191
+
+- name: "London"
+  country: "United Kingdom"
+  type: "lived"
+  lat: 51.50745
+  lng: -0.12777
+
+- name: "Cambridge"
+  country: "United Kingdom"
+  type: "lived"
+  lat: 52.19758
+  lng: 0.13915
+
+- name: "Pisa"
+  country: "Italy"
+  type: "lived"
+  lat: 43.47147
+  lng: 10.67979
+
+- name: "Munich"
+  country: "Germany"
+  type: "lived"
+  lat: 48.13711
+  lng: 11.57538
+
+- name: "Berlin"
+  country: "Germany"
+  lat: 52.51739
+  lng: 13.39513
+
+- name: "Hamburg"
+  country: "Germany"
+  lat: 53.55017
+  lng: 10.00132
+
+- name: "Lindau"
+  country: "Germany"
+  lat: 47.57287
+  lng: 9.69619
+
+- name: "Potsdam"
+  country: "Germany"
+  lat: 52.40093
+  lng: 13.05914
+
+- name: "Innsbruck"
+  country: "Austria"
+  lat: 47.26543
+  lng: 11.39277
