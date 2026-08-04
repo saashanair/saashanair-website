@@ -32,6 +32,7 @@ Ideas to work through for the `/travel-map` page, roughly in the order raised.
       free-text field directly in the yaml entry. Composes with photos/recommendations
       rather than being a mutually-exclusive tier — a place can have any combination.
 
-- [ ] **Track multiple visits to the same place** — optional `visits: [2019, 2023]`
+- [x] **Track multiple visits to the same place** — optional `visits: [2019, 2023]`
       field (list of years, not just a count), so the popup can say "Visited in 2019
-      and 2023" and it's usable later for filtering/sorting.
+      and 2023" and it's usable later for filtering/sorting. Independent of blurb —
+      a blurb isn't tied to any one year in the list.
