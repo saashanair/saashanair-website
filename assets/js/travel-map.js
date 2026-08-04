@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const markers = places.map((place, index) => {
     const hasNote = Boolean(place.url);
     const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, place.type, index) });
+    marker.travelType = place.type;
 
     marker.bindPopup(popupHTML(place, hasNote), { maxWidth: 280 });
     marker.bindTooltip(tooltipHTML(place, hasNote), { direction: 'top', className: 'travel-tooltip' });
@@ -62,9 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function clusterIcon(cluster) {
   const count = cluster.getChildCount();
   const size = count < 5 ? 32 : count < 15 ? 38 : 44;
+  const hasLived = cluster.getAllChildMarkers().some((m) => m.travelType === 'lived');
+  const className = hasLived ? 'travel-cluster travel-cluster--lived' : 'travel-cluster';
 
   return L.divIcon({
-    className: 'travel-cluster',
+    className,
     html: `<div style="width:${size}px;height:${size}px;">${count}</div>`,
     iconSize: [size, size]
   });
