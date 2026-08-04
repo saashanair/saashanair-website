@@ -31,6 +31,23 @@
   transform: scale(1.15) translateY(-2px);
 }
 
+.travel-tooltip {
+  font-family: 'LatoLatinWeb', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0f172a;
+  background: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+}
+
+.travel-tooltip::before {
+  border-top-color: #fff;
+}
+
 @keyframes travel-pin-drop {
   0% {
     transform: translateY(-40px) scale(0.4);
