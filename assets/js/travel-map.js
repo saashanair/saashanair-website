@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, index) });
 
     marker.bindPopup(popupHTML(place, hasNote), { maxWidth: 280 });
-    marker.bindTooltip(place.name, { direction: 'top', className: 'travel-tooltip' });
+    marker.bindTooltip(tooltipHTML(place, hasNote), { direction: 'top', className: 'travel-tooltip' });
     marker.on('click', () => {
       const targetZoom = Math.max(map.getZoom(), 6);
       // Center on a point above the pin (in pixel space) so the pin lands in
@@ -53,6 +53,11 @@ function pinIcon(hasNote, index) {
     popupAnchor: [0, -26],
     tooltipAnchor: [0, -24]
   });
+}
+
+function tooltipHTML(place, hasNote) {
+  const dot = hasNote ? '<span class="travel-tooltip__dot"></span>' : '';
+  return `${dot}${escapeHTML(place.name)}`;
 }
 
 function popupHTML(place, hasNote) {

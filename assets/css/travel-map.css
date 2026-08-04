@@ -48,6 +48,16 @@
   border-top-color: #fff;
 }
 
+.travel-tooltip__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #3b82f6;
+  vertical-align: middle;
+}
+
 @keyframes travel-pin-drop {
   0% {
     transform: translateY(-40px) scale(0.4);
