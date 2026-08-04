@@ -1,6 +1,10 @@
 {
+  "scripts": {
+    "geocode": "node scripts/geocode-travels.mjs"
+  },
   "dependencies": {
     "katex": "^0.16.21",
-    "vis-network": "^9.1.9"
+    "vis-network": "^9.1.9",
+    "yaml": "^2.9.0"
   }
 }
