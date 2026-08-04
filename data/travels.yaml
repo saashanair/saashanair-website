@@ -7,9 +7,11 @@
 # title matching `name`), the map will link to it automatically.
 #
 # Optional fields:
-#   type: lived    — marks the pin/cluster as a place lived in, not just visited
-#   blurb: "..."   — a short note shown in the popup, independent of any linked
-#                    note (a place can have a blurb, a linked note, both, or neither)
+#   type: lived       — marks the pin/cluster as a place lived in, not just visited
+#   blurb: "..."      — a short note shown in the popup, independent of any linked
+#                        note (a place can have a blurb, a linked note, both, or neither)
+#   visits: [2019, 2023] — years visited, shown as a tag in the popup. Independent of
+#                        blurb — a blurb isn't tied to any one visit in the list.
 
 - name: "Porto"
   country: "Portugal"
@@ -45,6 +47,7 @@
   country: "Spain"
   lat: 40.656478
   lng: -4.7002172
+  blurb: "Lived here for a week as I attended the AI Safety Research Camp"
 
 - name: "Bangkok"
   country: "Thailand"
@@ -55,6 +58,7 @@
   country: "Thailand"
   lat: 9.06869
   lng: 98.5738
+  blurb: "Lived in a floating bunglow over the lake - was particularly surreal as we had the entire resort to ourselves."
 
 - name: "Phuket"
   country: "Thailand"
@@ -75,6 +79,7 @@
   country: "Belgium"
   lat: 50.8792
   lng: 4.70117
+  blurb: "Attended a week-long student exchange programme at KU Leuven"
 
 - name: "Paris"
   country: "France"
@@ -115,6 +120,7 @@
   country: "Switzerland"
   lat: 47.42562
   lng: 9.37624
+  blurb: "Attended the START Summit with friends"
 
 - name: "Bucharest"
   country: "Romania"
@@ -125,6 +131,7 @@
   country: "Hungary"
   lat: 47.49788
   lng: 19.04024
+  blurb: "Retro Langos and Cheers Pub - the two main reasons to keep going back :P"
 
 - name: "Bratislava"
   country: "Slovakia"
