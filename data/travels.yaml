@@ -7,11 +7,12 @@
 # title matching `name`), the map will link to it automatically.
 #
 # Optional fields:
-#   type: lived       — marks the pin/cluster as a place lived in, not just visited
 #   blurb: "..."      — a short note shown in the popup, independent of any linked
 #                        note (a place can have a blurb, a linked note, both, or neither)
 #   visits: [2019, 2023] — years visited, shown as a tag in the popup. Independent of
 #                        blurb — a blurb isn't tied to any one visit in the list.
+#
+# Places lived in (not just visited) live in data/stays.yaml instead.
 
 - name: "Porto"
   country: "Portugal"
@@ -24,8 +25,15 @@
   country: "Italy"
   lat: 41.8933203
   lng: 12.4829321
+  blurb: "Love the city, feels like walking through time; Pizzeria Remo A Testaccio is a must-have"
+  visits: [2021, 2025]
+
+- name: "Vatican City"
+  country: "Vatican City"
+  lat: 41.90349
+  lng: 12.45283
   blurb:
-  visits:
+  visits: [2021, 2025]
 
 - name: "Florence"
   country: "Italy"
@@ -243,38 +251,6 @@
   lng: 103.85191
   blurb: "Work trip to visit GovTech"
   visits: [2026]
-
-- name: "London"
-  country: "United Kingdom"
-  type: "lived"
-  lat: 51.50745
-  lng: -0.12777
-  blurb:
-  visits:
-
-- name: "Cambridge"
-  country: "United Kingdom"
-  type: "lived"
-  lat: 52.19758
-  lng: 0.13915
-  blurb:
-  visits:
-
-- name: "Pisa"
-  country: "Italy"
-  type: "lived"
-  lat: 43.47147
-  lng: 10.67979
-  blurb:
-  visits:
-
-- name: "Munich"
-  country: "Germany"
-  type: "lived"
-  lat: 48.13711
-  lng: 11.57538
-  blurb:
-  visits:
 
 - name: "Berlin"
   country: "Germany"

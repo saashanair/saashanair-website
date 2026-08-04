@@ -1,0 +1,45 @@
+# Places lived in (not just visited), used to power the amber "lived here"
+# pins/clusters on the travel map. Each entry needs `name` and `country` at
+# minimum. Leave `lat`/`lng` blank for new entries — run `npm run geocode`
+# to fill them in automatically.
+#
+# If a note exists under content/notes/ for a place (categories: travel,
+# title matching `name`), the map will link to it automatically.
+#
+# Optional fields:
+#   from: 2021        — year moved there
+#   to: 2023           — year left (blank means still there / ongoing)
+#   blurb: "..."      — a short note shown in the popup, independent of any linked
+#                        note (a place can have a blurb, a linked note, both, or neither)
+
+- name: "London"
+  country: "United Kingdom"
+  lat: 51.50745
+  lng: -0.12777
+  from: 2022
+  to:
+  blurb:
+
+- name: "Cambridge"
+  country: "United Kingdom"
+  lat: 52.19758
+  lng: 0.13915
+  from: 2021
+  to: 2022
+  blurb:
+
+- name: "Pisa"
+  country: "Italy"
+  lat: 43.47147
+  lng: 10.67979
+  from: 2020
+  to: 2021
+  blurb:
+
+- name: "Munich"
+  country: "Germany"
+  lat: 48.13711
+  lng: 11.57538
+  from: 2016
+  to: 2020
+  blurb:
