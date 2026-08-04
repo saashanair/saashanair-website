@@ -18,7 +18,7 @@
         {{ end }}
       {{ end }}
 
-      {{ $entry := dict "name" $place.name "country" $place.country "lat" $place.lat "lng" $place.lng }}
+      {{ $entry := dict "name" $place.name "country" $place.country "lat" $place.lat "lng" $place.lng "type" ($place.type | default "visited") }}
       {{ if $note }}
         {{ $images := findRE `(?i)/images/notes/[^)\s"']+\.(?:jpg|jpeg|png|webp)` $note.RawContent }}
         {{ $entry = merge $entry (dict

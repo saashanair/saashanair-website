@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const markers = places.map((place, index) => {
     const hasNote = Boolean(place.url);
-    const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, index) });
+    const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, place.type, index) });
 
     marker.bindPopup(popupHTML(place, hasNote), { maxWidth: 280 });
     marker.bindTooltip(tooltipHTML(place, hasNote), { direction: 'top', className: 'travel-tooltip' });
@@ -70,15 +70,21 @@ function clusterIcon(cluster) {
   });
 }
 
-function pinIcon(hasNote, index) {
-  const color = hasNote ? '#3b82f6' : '#94a3b8';
+function pinIcon(hasNote, type, index) {
+  const lived = type === 'lived';
+  const color = lived ? '#f59e0b' : hasNote ? '#3b82f6' : '#94a3b8';
   const delay = Math.min(index * 60, 600);
+  // Lived-here pins get a small house glyph instead of a plain dot, on top
+  // of the amber color, so they're distinct even for colorblind users.
+  const glyph = lived
+    ? '<path d="M15 9 L20 13 L20 19 L10 19 L10 13 Z" fill="#fff"/>'
+    : '<circle cx="15" cy="15" r="6" fill="#fff"/>';
 
   return L.divIcon({
     className: 'travel-pin',
     html: `<svg width="30" height="40" viewBox="0 0 30 40" style="animation-delay:${delay}ms">
       <path d="M15 0C6.7 0 0 6.7 0 15c0 11.3 15 25 15 25s15-13.7 15-25C30 6.7 23.3 0 15 0z" fill="${color}" stroke="#fff" stroke-width="2"/>
-      <circle cx="15" cy="15" r="6" fill="#fff"/>
+      ${glyph}
     </svg>`,
     iconSize: [30, 40],
     iconAnchor: [15, 40],
@@ -100,7 +106,8 @@ function popupHTML(place, hasNote) {
     </div>`;
 
   if (!hasNote) {
-    return `<div class="travel-popup">${header}<p class="travel-popup__visited">Visited 🧳</p></div>`;
+    const status = place.type === 'lived' ? 'Lived here 🏠' : 'Visited 🧳';
+    return `<div class="travel-popup">${header}<p class="travel-popup__visited">${status}</p></div>`;
   }
 
   const images = place.images || [];
