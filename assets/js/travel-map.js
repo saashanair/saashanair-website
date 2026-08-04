@@ -103,22 +103,21 @@ function tooltipHTML(place, hasNote) {
 
 function popupHTML(place, hasNote) {
   const lived = place.type === 'lived';
-  const badge = lived ? '<span class="travel-popup__badge">🏠 Lived here</span>' : '';
   const header = `
     <div class="travel-popup__header">
       <strong class="travel-popup__title">${escapeHTML(place.name)}</strong>
-      <span class="travel-popup__country">${escapeHTML(place.country)}</span>${badge}
+      <span class="travel-popup__country">${escapeHTML(place.country)}</span>
     </div>`;
 
-  const years =
-    !lived && place.visits && place.visits.length
-      ? `<div class="travel-popup__years">Visited in ${place.visits.map(escapeHTML).join(', ')}</div>`
-      : '';
+  const years = !lived && place.visits && place.visits.length
+    ? `<div class="travel-popup__years">Visited in ${place.visits.map(escapeHTML).join(', ')}</div>`
+    : '';
 
-  const dateRange =
-    lived && place.from
-      ? `<div class="travel-popup__years">${escapeHTML(place.from)}&ndash;${place.to ? escapeHTML(place.to) : 'present'}</div>`
-      : '';
+  const dateRange = lived
+    ? `<div class="travel-popup__years travel-popup__years--lived">🏠 Lived here${
+        place.from ? ` &middot; ${escapeHTML(place.from)}&ndash;${place.to ? escapeHTML(place.to) : 'present'}` : ''
+      }</div>`
+    : '';
 
   const blurb = place.blurb ? `<p class="travel-popup__blurb">${escapeHTML(place.blurb)}</p>` : '';
 
@@ -130,12 +129,7 @@ function popupHTML(place, hasNote) {
        <a class="travel-popup__link" href="${escapeHTML(place.url)}">Read full recommendations &rarr;</a>`
     : '';
 
-  // Only fall back to a bare status line when there's nothing else to show —
-  // the lived-here badge above already covers that case on its own.
-  const hasContent = blurb || carousel || recommendations;
-  const fallback = !hasContent && !lived ? '<p class="travel-popup__visited">Visited 🧳</p>' : '';
-
-  return `<div class="travel-popup">${header}${years}${dateRange}${blurb}${carousel}${recommendations}${fallback}</div>`;
+  return `<div class="travel-popup">${header}${years}${dateRange}${blurb}${carousel}${recommendations}</div>`;
 }
 
 function carouselHTML(name, images) {

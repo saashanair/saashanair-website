@@ -139,16 +139,6 @@
   color: #0f172a;
 }
 
-.travel-popup__badge {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #92400e;
-  background: #fef3c7;
-  padding: 1px 8px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
 .travel-popup__blurb {
   font-size: 0.85rem;
   font-style: italic;
@@ -161,6 +151,11 @@
   font-size: 0.75rem;
   color: #94a3b8;
   margin: -4px 0 8px;
+}
+
+.travel-popup__years--lived {
+  color: #b45309;
+  font-weight: 600;
 }
 
 .travel-popup__country {
@@ -238,12 +233,6 @@
   color: #334155;
   margin: 8px 0;
   line-height: 1.4;
-}
-
-.travel-popup__visited {
-  font-size: 0.85rem;
-  color: #64748b;
-  margin: 4px 0 0;
 }
 
 .travel-popup__link {
