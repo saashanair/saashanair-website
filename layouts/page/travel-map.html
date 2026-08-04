@@ -1,0 +1,36 @@
+{{ define "main" }}
+  <article class="main">
+    <header>
+      <h1 class="!mb-1">{{ .Title }}</h1>
+    </header>
+
+    {{ .Content }}
+
+    {{ $travelNotes := where (where site.RegularPages "Type" "notes") "Params.categories" "travel" }}
+
+    {{ $places := slice }}
+    {{ range site.Data.travels }}
+      {{ $place := . }}
+      {{ $note := "" }}
+      {{ range $travelNotes }}
+        {{ if eq (lower .Title) (lower $place.name) }}
+          {{ $note = . }}
+        {{ end }}
+      {{ end }}
+
+      {{ $entry := dict "name" $place.name "country" $place.country "lat" $place.lat "lng" $place.lng }}
+      {{ if $note }}
+        {{ $images := findRE `(?i)/images/notes/[^)\s"']+\.(?:jpg|jpeg|png|webp)` $note.RawContent }}
+        {{ $entry = merge $entry (dict
+          "url" $note.RelPermalink
+          "summary" ($note.Summary | plainify)
+          "images" ($images | uniq)
+        ) }}
+      {{ end }}
+
+      {{ $places = $places | append $entry }}
+    {{ end }}
+
+    <div id="travel-map" data-travels="{{ $places | jsonify }}" style="height: 32rem;"></div>
+  </article>
+{{ end }}
