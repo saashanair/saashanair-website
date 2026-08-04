@@ -171,7 +171,7 @@
   country: "Romania"
   lat: 44.43614
   lng: 26.10268
-  blurb: "Attended the [EEML Summer School](https://www.eeml.eu/previous-editions/eeml2019)"
+  blurb: "Attended the EEML Summer School"
   visits: [2019]
 
 - name: "Budapest"
@@ -318,9 +318,23 @@
   blurb:
   visits: [2018]
 
-- name: "Malta"
+- name: "Valletta"
   country: "Malta"
-  lat: 35.90221
-  lng: 14.41374
+  lat: 35.899
+  lng: 14.51366
+  blurb:
+  visits: [2024]
+
+- name: "Gozo"
+  country: "Malta"
+  lat: 36.04678
+  lng: 14.25826
+  blurb:
+  visits: [2024]
+
+- name: "Comino"
+  country: "Malta"
+  lat: 36.01189
+  lng: 14.33693
   blurb:
   visits: [2024]
