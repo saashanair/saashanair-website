@@ -110,6 +110,11 @@ function popupHTML(place, hasNote) {
       <span class="travel-popup__country">${escapeHTML(place.country)}</span>${badge}
     </div>`;
 
+  const years =
+    place.visits && place.visits.length
+      ? `<div class="travel-popup__years">Visited in ${place.visits.map(escapeHTML).join(', ')}</div>`
+      : '';
+
   const blurb = place.blurb ? `<p class="travel-popup__blurb">${escapeHTML(place.blurb)}</p>` : '';
 
   const images = place.images || [];
@@ -125,7 +130,7 @@ function popupHTML(place, hasNote) {
   const hasContent = blurb || carousel || recommendations;
   const fallback = !hasContent && !lived ? '<p class="travel-popup__visited">Visited 🧳</p>' : '';
 
-  return `<div class="travel-popup">${header}${blurb}${carousel}${recommendations}${fallback}</div>`;
+  return `<div class="travel-popup">${header}${years}${blurb}${carousel}${recommendations}${fallback}</div>`;
 }
 
 function carouselHTML(name, images) {

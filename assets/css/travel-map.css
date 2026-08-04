@@ -157,6 +157,12 @@
   line-height: 1.4;
 }
 
+.travel-popup__years {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: -4px 0 8px;
+}
+
 .travel-popup__country {
   font-size: 0.8rem;
   color: #64748b;

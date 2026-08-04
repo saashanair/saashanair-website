@@ -19,9 +19,11 @@ const HEADER = `# Master list of places visited, used to power the travel map.
 # title matching \`name\`), the map will link to it automatically.
 #
 # Optional fields:
-#   type: lived    — marks the pin/cluster as a place lived in, not just visited
-#   blurb: "..."   — a short note shown in the popup, independent of any linked
-#                    note (a place can have a blurb, a linked note, both, or neither)
+#   type: lived       — marks the pin/cluster as a place lived in, not just visited
+#   blurb: "..."      — a short note shown in the popup, independent of any linked
+#                        note (a place can have a blurb, a linked note, both, or neither)
+#   visits: [2019, 2023] — years visited, shown as a tag in the popup. Independent of
+#                        blurb — a blurb isn't tied to any one visit in the list.
 `;
 
 async function geocode(name, country) {
@@ -47,11 +49,18 @@ function round(coord) {
 // safely handles colons, quotes, and other YAML-significant characters.
 const quote = (str) => JSON.stringify(str);
 
+function serializeValue(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map((v) => (typeof v === 'string' ? quote(v) : v)).join(', ')}]`;
+  }
+  return typeof value === 'string' ? quote(value) : value;
+}
+
 function serialize(places) {
   const entries = places.map((place) => {
     const lines = Object.entries(place).map(([key, value]) => {
       if (key === 'lat' || key === 'lng') return `${key}: ${value ?? ''}`;
-      return `${key}: ${typeof value === 'string' ? quote(value) : value}`;
+      return `${key}: ${serializeValue(value)}`;
     });
     return lines.map((line, i) => (i === 0 ? `- ${line}` : `  ${line}`)).join('\n');
   });
