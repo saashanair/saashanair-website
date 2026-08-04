@@ -38,9 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // One cluster group per country, so pins never merge across a border even
   // when two countries' pins are close together in pixel space.
-  for (const [, countryMarkers] of markersByCountry) {
+  for (const [country, countryMarkers] of markersByCountry) {
     const clusterGroup = L.markerClusterGroup({
-      iconCreateFunction: clusterIcon,
+      iconCreateFunction: (cluster) => {
+        cluster.bindTooltip(country, { direction: 'top', className: 'travel-tooltip' });
+        return clusterIcon(cluster);
+      },
       showCoverageOnHover: false,
       spiderfyOnMaxZoom: true,
       maxClusterRadius: 50
