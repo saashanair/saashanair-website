@@ -10,12 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     maxZoom: 18
   }).addTo(map);
 
-  const clusterGroup = L.markerClusterGroup({
-    iconCreateFunction: clusterIcon,
-    showCoverageOnHover: false,
-    spiderfyOnMaxZoom: true,
-    maxClusterRadius: 50
-  });
+  const markersByCountry = new Map();
 
   const markers = places.map((place, index) => {
     const hasNote = Boolean(place.url);
@@ -35,16 +30,29 @@ document.addEventListener('DOMContentLoaded', () => {
       map.flyTo(targetLatLng, targetZoom, { duration: 0.8 });
     });
 
+    if (!markersByCountry.has(place.country)) markersByCountry.set(place.country, []);
+    markersByCountry.get(place.country).push(marker);
+
     return marker;
   });
 
-  clusterGroup.addLayers(markers);
-  map.addLayer(clusterGroup);
+  // One cluster group per country, so pins never merge across a border even
+  // when two countries' pins are close together in pixel space.
+  for (const [, countryMarkers] of markersByCountry) {
+    const clusterGroup = L.markerClusterGroup({
+      iconCreateFunction: clusterIcon,
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+      maxClusterRadius: 50
+    });
+    clusterGroup.addLayers(countryMarkers);
+    map.addLayer(clusterGroup);
+  }
 
   map.on('popupopen', (e) => initCarousel(e.popup.getElement()));
 
   if (markers.length) {
-    map.fitBounds(clusterGroup.getBounds().pad(0.2));
+    map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2));
   }
 });
 
