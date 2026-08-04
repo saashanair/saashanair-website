@@ -43,10 +43,13 @@ function round(coord) {
 const quote = (str) => JSON.stringify(str);
 
 function serialize(places) {
-  const entries = places.map(
-    ({ name, country, lat, lng }) =>
-      `- name: ${quote(name)}\n  country: ${quote(country)}\n  lat: ${lat ?? ''}\n  lng: ${lng ?? ''}`
-  );
+  const entries = places.map((place) => {
+    const lines = Object.entries(place).map(([key, value]) => {
+      if (key === 'lat' || key === 'lng') return `${key}: ${value ?? ''}`;
+      return `${key}: ${typeof value === 'string' ? quote(value) : value}`;
+    });
+    return lines.map((line, i) => (i === 0 ? `- ${line}` : `  ${line}`)).join('\n');
+  });
   return `${HEADER}\n${entries.join('\n\n')}\n`;
 }
 
