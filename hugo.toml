@@ -28,6 +28,10 @@ enableRobotsTXT = true # IMPORTANT: set to true if you want to use the theme's g
     pageRef = '/notes'
     weight = 30
   [[menus.main]]
+    name = 'Map'
+    pageRef = '/travel-map'
+    weight = 35
+  [[menus.main]]
     name = 'Newsletter'
     url = 'https://sufficientlyexplained.substack.com/'
     #pageRef = '/sufficiently_explained'
