@@ -8,9 +8,18 @@
 
     {{ $travelNotes := where (where site.RegularPages "Type" "notes") "Params.categories" "travel" }}
 
-    {{ $places := slice }}
+    {{ $sources := slice }}
     {{ range site.Data.travels }}
-      {{ $place := . }}
+      {{ $sources = $sources | append (dict "place" . "type" "visited") }}
+    {{ end }}
+    {{ range site.Data.stays }}
+      {{ $sources = $sources | append (dict "place" . "type" "lived") }}
+    {{ end }}
+
+    {{ $places := slice }}
+    {{ range $sources }}
+      {{ $place := .place }}
+      {{ $type := .type }}
       {{ $note := "" }}
       {{ range $travelNotes }}
         {{ if eq (lower .Title) (lower $place.name) }}
@@ -18,7 +27,13 @@
         {{ end }}
       {{ end }}
 
-      {{ $entry := dict "name" $place.name "country" $place.country "lat" $place.lat "lng" $place.lng "type" ($place.type | default "visited") "blurb" $place.blurb "visits" $place.visits }}
+      {{ $entry := dict "name" $place.name "country" $place.country "lat" $place.lat "lng" $place.lng "type" $type "blurb" $place.blurb }}
+      {{ if eq $type "visited" }}
+        {{ $entry = merge $entry (dict "visits" $place.visits) }}
+      {{ else }}
+        {{ $entry = merge $entry (dict "from" $place.from "to" $place.to) }}
+      {{ end }}
+
       {{ if $note }}
         {{ $images := findRE `(?i)/images/notes/[^)\s"']+\.(?:jpg|jpeg|png|webp)` $note.RawContent }}
         {{ $entry = merge $entry (dict
