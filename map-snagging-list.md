@@ -28,9 +28,9 @@ Ideas to work through for the `/travel-map` page, roughly in the order raised.
       entry (default `visited`), its own pin color/icon and popup phrasing. Could pair
       with optional `from`/`to` year fields.
 
-- [ ] **Short blurbs without a full recommendations post** — optional `blurb:`
-      free-text field directly in the yaml entry. Gives a third tier: bare pin → pin +
-      short text → pin + full popup with photos and a link to a note.
+- [x] **Short blurbs without a full recommendations post** — optional `blurb:`
+      free-text field directly in the yaml entry. Composes with photos/recommendations
+      rather than being a mutually-exclusive tier — a place can have any combination.
 
 - [ ] **Track multiple visits to the same place** — optional `visits: [2019, 2023]`
       field (list of years, not just a count), so the popup can say "Visited in 2019
