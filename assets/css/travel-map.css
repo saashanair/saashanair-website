@@ -91,8 +91,15 @@
   height: 6px;
   margin-right: 5px;
   border-radius: 50%;
-  background: #3b82f6;
   vertical-align: middle;
+}
+
+.travel-tooltip__dot--note {
+  background: #2563eb;
+}
+
+.travel-tooltip__dot--blurb {
+  background: #93c5fd;
 }
 
 @keyframes travel-pin-drop {
@@ -246,4 +253,45 @@
 
 .travel-popup__link:hover {
   text-decoration: underline;
+}
+
+.travel-legend {
+  background: #fff;
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+  font-family: 'LatoLatinWeb', sans-serif;
+  font-size: 0.75rem;
+  color: #334155;
+  line-height: 1.8;
+}
+
+.travel-legend__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.travel-legend__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.travel-legend__swatch--note {
+  background: #2563eb;
+}
+
+.travel-legend__swatch--blurb {
+  background: #93c5fd;
+}
+
+.travel-legend__swatch--lived {
+  background: #f59e0b;
+}
+
+.travel-legend__swatch--visited {
+  background: #94a3b8;
 }

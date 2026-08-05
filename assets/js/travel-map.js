@@ -14,11 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const markers = places.map((place, index) => {
     const hasNote = Boolean(place.url);
-    const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, place.type, index) });
+    const hasBlurb = Boolean(place.blurb);
+    const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, hasBlurb, place.type, index) });
     marker.travelType = place.type;
 
     marker.bindPopup(popupHTML(place, hasNote), { maxWidth: 280 });
-    marker.bindTooltip(tooltipHTML(place, hasNote), { direction: 'top', className: 'travel-tooltip' });
+    marker.bindTooltip(tooltipHTML(place, hasNote, hasBlurb), { direction: 'top', className: 'travel-tooltip' });
     marker.on('click', () => {
       const targetZoom = Math.max(map.getZoom(), 6);
       // Center on a point above the pin (in pixel space) so the pin lands in
@@ -58,7 +59,27 @@ document.addEventListener('DOMContentLoaded', () => {
   if (markers.length) {
     map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2));
   }
+
+  addLegend(map);
 });
+
+function addLegend(map) {
+  const legend = L.control({ position: 'bottomleft' });
+
+  legend.onAdd = () => {
+    const div = L.DomUtil.create('div', 'travel-legend');
+    L.DomEvent.disableClickPropagation(div);
+    div.innerHTML = `
+      <div class="travel-legend__row"><span class="travel-legend__swatch travel-legend__swatch--note"></span>Recommendations</div>
+      <div class="travel-legend__row"><span class="travel-legend__swatch travel-legend__swatch--blurb"></span>Quick note</div>
+      <div class="travel-legend__row"><span class="travel-legend__swatch travel-legend__swatch--lived"></span>Lived here</div>
+      <div class="travel-legend__row"><span class="travel-legend__swatch travel-legend__swatch--visited"></span>No write-up</div>
+    `;
+    return div;
+  };
+
+  legend.addTo(map);
+}
 
 function clusterIcon(cluster) {
   const count = cluster.getChildCount();
@@ -73,9 +94,12 @@ function clusterIcon(cluster) {
   });
 }
 
-function pinIcon(hasNote, type, index) {
+function pinIcon(hasNote, hasBlurb, type, index) {
   const lived = type === 'lived';
-  const color = lived ? '#f59e0b' : hasNote ? '#3b82f6' : '#94a3b8';
+  // Full write-ups get the strongest signal (deepest blue) since that's
+  // where a reader actually gains something; a bare blurb is a lighter
+  // shade of the same color so it still reads as "related," just lesser.
+  const color = lived ? '#f59e0b' : hasNote ? '#2563eb' : hasBlurb ? '#93c5fd' : '#94a3b8';
   const delay = Math.min(index * 60, 600);
   // Lived-here pins get a small house glyph instead of a plain dot, on top
   // of the amber color, so they're distinct even for colorblind users.
@@ -96,8 +120,12 @@ function pinIcon(hasNote, type, index) {
   });
 }
 
-function tooltipHTML(place, hasNote) {
-  const dot = hasNote ? '<span class="travel-tooltip__dot"></span>' : '';
+function tooltipHTML(place, hasNote, hasBlurb) {
+  const dot = hasNote
+    ? '<span class="travel-tooltip__dot travel-tooltip__dot--note"></span>'
+    : hasBlurb
+      ? '<span class="travel-tooltip__dot travel-tooltip__dot--blurb"></span>'
+      : '';
   return `${dot}${escapeHTML(place.name)}, ${escapeHTML(place.country)}`;
 }
 
