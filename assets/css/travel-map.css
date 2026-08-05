@@ -270,7 +270,26 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  width: 100%;
   white-space: nowrap;
+  border: none;
+  background: none;
+  padding: 1px 4px;
+  margin: 0 -4px;
+  border-radius: 5px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.travel-legend__row:hover {
+  background: #f1f5f9;
+}
+
+.travel-legend__row.is-active {
+  background: #e2e8f0;
+  font-weight: 700;
 }
 
 .travel-legend__swatch {

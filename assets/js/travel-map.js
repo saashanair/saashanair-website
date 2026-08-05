@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const hasBlurb = Boolean(place.blurb);
     const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, hasBlurb, place.type, index) });
     marker.travelType = place.type;
+    marker.travelCountry = place.country;
+    // A place can match more than one legend filter at once (e.g. lived in
+    // AND has a full write-up), even though the pin can only show one color
+    // (lived takes visual precedence there — see pinIcon).
+    marker.travelTags = {
+      lived: place.type === 'lived',
+      note: hasNote,
+      blurb: hasBlurb,
+      none: !hasNote && !hasBlurb
+    };
 
     marker.bindPopup(popupHTML(place, hasNote), { maxWidth: 280 });
     marker.bindTooltip(tooltipHTML(place, hasNote, hasBlurb), { direction: 'top', className: 'travel-tooltip' });
@@ -40,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // One cluster group per country, so pins never merge across a border even
   // when two countries' pins are close together in pixel space.
+  const clusterGroupsByCountry = new Map();
   for (const [country, countryMarkers] of markersByCountry) {
     const clusterGroup = L.markerClusterGroup({
       iconCreateFunction: (cluster) => {
@@ -52,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     clusterGroup.addLayers(countryMarkers);
     map.addLayer(clusterGroup);
+    clusterGroupsByCountry.set(country, clusterGroup);
   }
 
   map.on('popupopen', (e) => initCarousel(e.popup.getElement()));
@@ -60,21 +72,48 @@ document.addEventListener('DOMContentLoaded', () => {
     map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2));
   }
 
-  addLegend(map);
+  addLegend(map, markers, clusterGroupsByCountry);
 });
 
-function addLegend(map) {
+function addLegend(map, markers, clusterGroupsByCountry) {
   const legend = L.control({ position: 'bottomleft' });
+  let activeCategory = null;
+
+  function applyFilter(category) {
+    for (const marker of markers) {
+      const group = clusterGroupsByCountry.get(marker.travelCountry);
+      const shouldShow = !category || marker.travelTags[category];
+      const isShown = group.hasLayer(marker);
+      if (shouldShow && !isShown) group.addLayer(marker);
+      if (!shouldShow && isShown) group.removeLayer(marker);
+    }
+
+    const visible = markers.filter((m) => !category || m.travelTags[category]);
+    if (visible.length) {
+      map.flyToBounds(L.featureGroup(visible).getBounds().pad(0.2));
+    }
+  }
 
   legend.onAdd = () => {
     const div = L.DomUtil.create('div', 'travel-legend');
     L.DomEvent.disableClickPropagation(div);
     div.innerHTML = `
-      <div class="travel-legend__row"><span class="travel-legend__swatch travel-legend__swatch--note"></span>Recommendations</div>
-      <div class="travel-legend__row"><span class="travel-legend__swatch travel-legend__swatch--blurb"></span>Quick note</div>
-      <div class="travel-legend__row"><span class="travel-legend__swatch travel-legend__swatch--lived"></span>Lived here</div>
-      <div class="travel-legend__row"><span class="travel-legend__swatch travel-legend__swatch--visited"></span>No write-up</div>
+      <button type="button" class="travel-legend__row" data-category="note"><span class="travel-legend__swatch travel-legend__swatch--note"></span>Recommendations</button>
+      <button type="button" class="travel-legend__row" data-category="blurb"><span class="travel-legend__swatch travel-legend__swatch--blurb"></span>Quick note</button>
+      <button type="button" class="travel-legend__row" data-category="lived"><span class="travel-legend__swatch travel-legend__swatch--lived"></span>Lived here</button>
+      <button type="button" class="travel-legend__row" data-category="none"><span class="travel-legend__swatch travel-legend__swatch--visited"></span>No write-up</button>
     `;
+
+    const rows = [...div.querySelectorAll('.travel-legend__row')];
+    rows.forEach((row) => {
+      row.addEventListener('click', () => {
+        const category = row.dataset.category;
+        activeCategory = activeCategory === category ? null : category;
+        applyFilter(activeCategory);
+        rows.forEach((r) => r.classList.toggle('is-active', r.dataset.category === activeCategory));
+      });
+    });
+
     return div;
   };
 
