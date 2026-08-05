@@ -20,9 +20,10 @@ Ideas to work through for the `/travel-map` page, roughly in the order raised.
       to a region and lose precision. Tradeoff: one more CDN dependency, same pattern
       as Leaflet itself.
 
-- [ ] **Photos without a full written note** — folder convention: drop photos into
+- [x] **Photos without a full written note** — folder convention: drop photos into
       `static/images/travels/<slugified-name>/`, template auto-discovers them at
-      build time (Hugo's `os.ReadDir`). No YAML editing, no note required.
+      build time (Hugo's `readDir`). No YAML editing, no note required. Standalone
+      photos also count toward the "quick note" pin tier, same as a blurb.
 
 - [x] **Indicate "lived here" vs. "visited"** — lived places live in their own
       `data/stays.yaml` (own pin color/icon, `from`/`to` year fields) rather than a
