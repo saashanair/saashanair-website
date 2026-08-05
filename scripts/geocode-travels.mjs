@@ -25,6 +25,10 @@ const DATA_FILES = [
 #                        note (a place can have a blurb, a linked note, both, or neither)
 #   visits: [2019, 2023] — years visited, shown as a tag in the popup. Independent of
 #                        blurb — a blurb isn't tied to any one visit in the list.
+#   note: "<filename>"   — explicitly link to a note by its content filename (no
+#                        extension), bypassing the title match. Use this when several
+#                        places share one write-up, e.g. a multi-stop trip — set the
+#                        same note: on each place involved.
 #
 # Places lived in (not just visited) live in data/stays.yaml instead.
 `
@@ -44,6 +48,8 @@ const DATA_FILES = [
 #   to: 2023           — year left (blank means still there / ongoing)
 #   blurb: "..."      — a short note shown in the popup, independent of any linked
 #                        note (a place can have a blurb, a linked note, both, or neither)
+#   note: "<filename>"   — explicitly link to a note by its content filename (no
+#                        extension), bypassing the title match.
 `
   }
 ];

@@ -20,10 +20,18 @@
     {{ range $sources }}
       {{ $place := .place }}
       {{ $type := .type }}
+      {{/* A place normally links to a note by matching its title. When
+           several places share one write-up (e.g. a multi-stop trip), set
+           note: "<filename>" (no extension) on each entry to point them all
+           at the same note explicitly, bypassing the title match. */}}
       {{ $note := "" }}
-      {{ range $travelNotes }}
-        {{ if eq (lower .Title) (lower $place.name) }}
-          {{ $note = . }}
+      {{ if $place.note }}
+        {{ $note = site.GetPage (printf "/notes/%s" $place.note) }}
+      {{ else }}
+        {{ range $travelNotes }}
+          {{ if eq (lower .Title) (lower $place.name) }}
+            {{ $note = . }}
+          {{ end }}
         {{ end }}
       {{ end }}
 

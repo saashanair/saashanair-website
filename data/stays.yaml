@@ -11,6 +11,8 @@
 #   to: 2023           — year left (blank means still there / ongoing)
 #   blurb: "..."      — a short note shown in the popup, independent of any linked
 #                        note (a place can have a blurb, a linked note, both, or neither)
+#   note: "<filename>"   — explicitly link to a note by its content filename (no
+#                        extension), bypassing the title match.
 
 - name: "London"
   country: "United Kingdom"
