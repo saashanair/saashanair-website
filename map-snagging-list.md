@@ -2,11 +2,11 @@
 
 Ideas to work through for the `/travel-map` page, roughly in the order raised.
 
-- [ ] **Multi-place trips sharing one note** — e.g. Bangkok, Khao Sok, Phuket were one
-      Thailand trip with only enough content for a single note, not three. Title-matching
-      (note title == place name) can't cover this. Add an optional `note:` field to a
-      travel entry that explicitly points at a note slug, overriding the automatic
-      title match. Default stays zero-config for the common single-place case.
+- [x] **Multi-place trips sharing one note** — e.g. Bangkok, Khao Sok, Phuket were one
+      Thailand trip with only enough content for a single note, not three. Optional
+      `note: "<filename>"` field on an entry explicitly links it to a note via
+      `site.GetPage`, bypassing the title match. Default stays zero-config for the
+      common single-place case; each place still keeps its own blurb/visits.
 
 - [x] **Pins are too big / cluttered** — shrink the pin SVG size (currently 30x40).
 
