@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const markers = places.map((place, index) => {
     const hasNote = Boolean(place.url);
-    const hasBlurb = Boolean(place.blurb);
+    // Standalone photos (no linked note) count the same as a blurb for
+    // tiering purposes — either way there's something worth a look.
+    const hasBlurb = Boolean(place.blurb) || (!hasNote && Boolean(place.images && place.images.length));
     const marker = L.marker([place.lat, place.lng], { icon: pinIcon(hasNote, hasBlurb, place.type, index) });
     marker.travelType = place.type;
     marker.travelCountry = place.country;

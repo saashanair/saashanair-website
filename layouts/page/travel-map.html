@@ -34,13 +34,32 @@
         {{ $entry = merge $entry (dict "from" $place.from "to" $place.to) }}
       {{ end }}
 
+      {{/* Photos without a written note: drop images into
+           static/images/travels/<slug>/ (slug = the place name run through
+           urlize, e.g. "Las Palmas de Gran Canaria" -> "las-palmas-de-gran-canaria")
+           and they show up in the popup automatically — no YAML, no note. */}}
+      {{ $slug := $place.name | urlize }}
+      {{ $folderDir := printf "static/images/travels/%s" $slug }}
+      {{ $images := slice }}
+      {{ if fileExists $folderDir }}
+        {{ range sort (readDir $folderDir) "Name" }}
+          {{ if not .IsDir }}
+            {{ $images = $images | append (printf "/images/travels/%s/%s" $slug .Name) }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
       {{ if $note }}
-        {{ $images := findRE `(?i)/images/notes/[^)\s"']+\.(?:jpg|jpeg|png|webp)` $note.RawContent }}
+        {{ $noteImages := findRE `(?i)/images/notes/[^)\s"']+\.(?:jpg|jpeg|png|webp)` $note.RawContent }}
+        {{ $images = ($images | append $noteImages) | uniq }}
         {{ $entry = merge $entry (dict
           "url" $note.RelPermalink
           "summary" ($note.Plain | truncate 160)
-          "images" ($images | uniq)
         ) }}
+      {{ end }}
+
+      {{ if gt (len $images) 0 }}
+        {{ $entry = merge $entry (dict "images" $images) }}
       {{ end }}
 
       {{ $places = $places | append $entry }}
