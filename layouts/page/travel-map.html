@@ -1,0 +1,80 @@
+{{ define "main" }}
+  <article class="main">
+    <header>
+      <h1 class="!mb-1">{{ .Title }}</h1>
+    </header>
+
+    {{ .Content }}
+
+    {{ $travelNotes := where (where site.RegularPages "Type" "notes") "Params.categories" "travel" }}
+
+    {{ $sources := slice }}
+    {{ range site.Data.travels }}
+      {{ $sources = $sources | append (dict "place" . "type" "visited") }}
+    {{ end }}
+    {{ range site.Data.stays }}
+      {{ $sources = $sources | append (dict "place" . "type" "lived") }}
+    {{ end }}
+
+    {{ $places := slice }}
+    {{ range $sources }}
+      {{ $place := .place }}
+      {{ $type := .type }}
+      {{/* A place normally links to a note by matching its title. When
+           several places share one write-up (e.g. a multi-stop trip), set
+           note: "<filename>" (no extension) on each entry to point them all
+           at the same note explicitly, bypassing the title match. */}}
+      {{ $note := "" }}
+      {{ if $place.note }}
+        {{ $note = site.GetPage (printf "/notes/%s" $place.note) }}
+      {{ else }}
+        {{ range $travelNotes }}
+          {{ if eq (lower .Title) (lower $place.name) }}
+            {{ $note = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ $entry := dict "name" $place.name "country" $place.country "lat" $place.lat "lng" $place.lng "type" $type "blurb" $place.blurb }}
+      {{ if eq $type "visited" }}
+        {{ $entry = merge $entry (dict "visits" $place.visits) }}
+      {{ else }}
+        {{ $entry = merge $entry (dict "from" $place.from "to" $place.to) }}
+      {{ end }}
+
+      {{/* Photos without a written note: drop images into
+           static/images/travels/<slug>/ (slug = the place name run through
+           urlize, e.g. "Las Palmas de Gran Canaria" -> "las-palmas-de-gran-canaria")
+           and they show up in the popup automatically — no YAML, no note. */}}
+      {{ $slug := $place.name | urlize }}
+      {{ $folderDir := printf "static/images/travels/%s" $slug }}
+      {{ $images := slice }}
+      {{ if fileExists $folderDir }}
+        {{ range sort (readDir $folderDir) "Name" }}
+          {{ if not .IsDir }}
+            {{ $images = $images | append (printf "/images/travels/%s/%s" $slug .Name) }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ if $note }}
+        {{ $noteImages := findRE `(?i)/images/notes/[^)\s"']+\.(?:jpg|jpeg|png|webp)` $note.RawContent }}
+        {{ $images = ($images | append $noteImages) | uniq }}
+        {{ $entry = merge $entry (dict
+          "url" $note.RelPermalink
+          "summary" ($note.Plain | truncate 160)
+        ) }}
+      {{ end }}
+
+      {{ if gt (len $images) 0 }}
+        {{ $entry = merge $entry (dict "images" $images) }}
+      {{ end }}
+
+      {{ $places = $places | append $entry }}
+    {{ end }}
+
+    <div class="travel-map-bleed">
+      <div id="travel-map" data-travels="{{ $places | jsonify }}"></div>
+    </div>
+  </article>
+{{ end }}

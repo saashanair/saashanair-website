@@ -1,0 +1,316 @@
+/* The theme wraps every page in max-w-prose (~65ch), which keeps the nav,
+   title, and intro text consistent with every other page. Rather than
+   widening the whole page (which made the nav bar shift width relative to
+   other pages), only the map itself breaks out of that column — a
+   standard "full-bleed" trick: the wrapper spans the viewport and the map
+   re-centers and caps its own width inside that. Gated to tablet+ so
+   mobile keeps the map inset within the page padding, matching every
+   other element on small screens. */
+@media (min-width: 768px) {
+  .travel-map-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+  }
+}
+
+#travel-map {
+  max-width: 64rem;
+  margin: 0 auto;
+  height: clamp(20rem, 70vh, 40rem);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+}
+
+#travel-map .leaflet-tile-pane {
+  filter: saturate(0.85) sepia(0.18) hue-rotate(-8deg) brightness(1.05);
+}
+
+.travel-pin {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  animation: travel-pin-drop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.travel-pin:hover {
+  transform: scale(1.15) translateY(-2px);
+}
+
+.travel-cluster {
+  cursor: pointer;
+}
+
+.travel-cluster div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  font-family: 'LatoLatinWeb', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.travel-cluster:hover div {
+  transform: scale(1.1);
+}
+
+.travel-cluster--lived div {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px #f59e0b, 0 2px 8px rgba(15, 23, 42, 0.25);
+}
+
+.travel-tooltip {
+  font-family: 'LatoLatinWeb', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0f172a;
+  background: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+}
+
+.travel-tooltip::before {
+  border-top-color: #fff;
+}
+
+.travel-tooltip__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.travel-tooltip__dot--note {
+  background: #2563eb;
+}
+
+.travel-tooltip__dot--blurb {
+  background: #93c5fd;
+}
+
+@keyframes travel-pin-drop {
+  0% {
+    transform: translateY(-40px) scale(0.4);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(4px) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  width: 260px !important;
+}
+
+.travel-popup {
+  font-family: 'LatoLatinWeb', sans-serif;
+  padding: 14px;
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.travel-popup__header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.travel-popup__title {
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.travel-popup__blurb {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #334155;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.travel-popup__years {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: -4px 0 8px;
+}
+
+.travel-popup__years--lived {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.travel-popup__country {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.travel-popup__carousel {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #e2e8f0;
+}
+
+.travel-popup__slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.travel-popup__slides img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.travel-popup__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.55);
+  color: #fff;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.travel-popup__nav--prev {
+  left: 6px;
+}
+
+.travel-popup__nav--next {
+  right: 6px;
+}
+
+.travel-popup__dots {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.travel-popup__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.travel-popup__dot.is-active {
+  background: #fff;
+}
+
+.travel-popup__summary {
+  font-size: 0.85rem;
+  color: #334155;
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.travel-popup__link {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.travel-popup__link:hover {
+  text-decoration: underline;
+}
+
+.travel-legend {
+  background: #fff;
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+  font-family: 'LatoLatinWeb', sans-serif;
+  font-size: 0.75rem;
+  color: #334155;
+  line-height: 1.8;
+}
+
+.travel-legend__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  white-space: nowrap;
+  border: none;
+  background: none;
+  padding: 1px 4px;
+  margin: 0 -4px;
+  border-radius: 5px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.travel-legend__row:hover {
+  background: #f1f5f9;
+}
+
+.travel-legend__row.is-active {
+  background: #e2e8f0;
+  font-weight: 700;
+}
+
+.travel-legend__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.travel-legend__swatch--note {
+  background: #2563eb;
+}
+
+.travel-legend__swatch--blurb {
+  background: #93c5fd;
+}
+
+.travel-legend__swatch--lived {
+  background: #f59e0b;
+}
+
+.travel-legend__swatch--visited {
+  background: #94a3b8;
+}
